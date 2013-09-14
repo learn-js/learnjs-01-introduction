@@ -1082,12 +1082,12 @@ Here we close the callback function with a curly brace, close the call to the te
 
 In this section of the book we'll review strings, numbers, arrays, and objects, and focus on a problem that often comes up with each of them.
 
+
 # Strings
 
 ## Problem
 
 We have a large amount of text that has weird strings in it that need to be replaced.
-
 
 ## How we might solve it
 
@@ -1100,9 +1100,6 @@ That approach assumes that when we are working with buffers, we want the data st
 We haven't talked about buffers before in this book. You can learn more about them by [reading the node.js docs about buffers](http://nodejs.org/api/buffer.html).
 
 Buffers are used for dealing with binary data. A likely reason for using buffers: you're reading or writing files using node.js.
-
-
-
 
 ## Create a module
 
@@ -1139,7 +1136,7 @@ module.exports = function(str, remove, replacer){
   var buffer = false;
   var str = str;
 
-  if (typeof str === 'buffer'){
+  if (Buffer.isBuffer(str)){
     str = str.toString();
     buffer = true;
   }
@@ -1156,29 +1153,114 @@ module.exports = function(str, remove, replacer){
 
 ## Usage
 
+The test we wrote shows pretty clearly how to use this module, but here's an example of using it with a string:
+
+```
+var replace = require('./index');
+
+var messyString = 'this is a WHAT string';
+
+cleanString = replace(messyString, 'WHAT ');
+```
+
+Because we made the 3rd argument optional, this will just remove the `'WHAT '` substring to return this:
+
+```
+this is a string
+```
+
+Here's another example that works with a buffer and uses a regular expression to find the substring that should be removed:
+
+Create a file named example.txt and save it with this text:
+
+```
+This is some #we#ird text that has #a bunch# of pound sig#ns mixed in. #wtf.
+```
+
+
+```
+var fs = require('fs');
+var replace = require('./index');
+
+var file = 'example.txt';
+
+fs.readFile(file, callback(err, content){
+  if (err) throw err;
+
+  fs.writeFile(file, replace(content, /#/g));
+});
+```
+
+We're using this regular expression: `/#/g`.
+
+A regular expression has forward slashes (`/`) at the beginning and end, followed by optional parameters that change the behavior of what the regexp matches. By placing `g` at the end of the regexp our replace statement will find all instances of the pound symbol. Without the `g` only the first instance of the `#` would be matched.
+
+After running `node test.js` in the terminal the file should now look like this:
+
+```
+This is some weird text that has a bunch of pound signs mixed in. wtf.
+```
+
+Note that this usage with the `fs` module from node.js won't work in the browser, because you won't be able to read or write files from the browser in this way. In the browser you'll typically be working with strings instead of buffers anyway.
 
 
 # Numbers
 
 ## Problem
 
+We need a bunch of random numbers to use in a game. They all need to have a different range, so we need to set the minimum and maximum values. We also need to be able to specify if the numbers should be integers or floats.
+
 ## How we might solve it
+
+Let's make a module that takes three arguments, the mimimum value, the maximum value, and an optional boolean that if set to `true`, ensures that the function only returns integers.
 
 ## Create a module
 
 ### Tests
 
+```
+var test = require('tape');
+var randomizer = require('./');
+
+test('string test', function(t){
+  t.plan(2);
+
+  t.ok(randomizer(1, 5) % 1 !== 0);
+  t.ok(randomizer(1, 5, true) % 1 === 0);
+});
+```
+
 ### Implement the module
 
 ```
-module.exports = function(){
-  
+module.exports = function(min, max, int){
+  var num = Math.random() * (max - min) + min;
+
+  if (int){
+    return Math.floor(num)
+  }
+
+  return num;
 }
 ```
 
 ## Usage
 
+Here's an example that returns a random float between 1 and 5:
 
+```
+var randomizer = require('./math');
+
+console.log(randomizer(1, 5));
+```
+
+And here's an example that returns a random integer between 1 and 5:
+
+```
+var randomizer = require('./math');
+
+console.log(randomizer(1, 5, true));
+```
 
 
 # Arrays
@@ -1190,6 +1272,19 @@ module.exports = function(){
 ## Create a module
 
 ### Tests
+
+
+```
+var test = require('tape');
+var replace = require('./');
+
+
+test('string test', function(t){
+  t.plan(1);
+
+  t.equal();
+});
+```
 
 ### Implement the module
 
@@ -1253,11 +1348,28 @@ Nice, now that method on `thisIsAnObject` isn’t an issue.
 
 ### Tests
 
+
+```
+var test = require('tape');
+var replace = require('./');
+
+
+test('string test', function(t){
+  t.plan(1);
+
+  t.equal();
+});
+```
+
 ### Implement the module
 
 ```
-module.exports = function(){
-  
+module.exports = function(obj){
+  for (var key in obj){
+    if (typeof obj[key] !== 'function'){
+      console.log(obj[key]);
+    }
+  }
 }
 ```
 
@@ -1290,7 +1402,7 @@ module.exports = function(){
 - [dom enlightenmnet](http://domenlightenment.com/)
 
 ## Style guides:
-- [idiomatic.js](https://github.com/rwldrn/idiomatic.js)
+- [idiomatic js](https://github.com/rwldrn/idiomatic.js)
 - [idiomatic html](https://github.com/necolas/idiomatic-html)
 - [idiomatic css](https://github.com/necolas/idiomatic-css)
 - [airbnb js style guide](https://github.com/airbnb/javascript)
