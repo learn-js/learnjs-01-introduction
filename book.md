@@ -1384,6 +1384,17 @@ module.exports = function(obj){
 
 # Additional resources
 
+## interactive terminal tutorials:
+These are almost like adventure games, except for learning programming:
+
+- [Learn You The Node.js For Much Win!](https://github.com/rvagg/learnyounode) An intro to Node.js via a set of self-guided workshops.
+- [Stream Adventure](https://github.com/substack/stream-adventure). Learn about streams in node.js
+- [Level Me Up Scotty!](https://github.com/rvagg/levelmeup) Learn about using leveldb with node.js
+
+### Online interactive tutorials:
+- [codecademy.com](http://codecademy.com)
+- [Kahn Academy Computer Science](https://www.khanacademy.org/cs)
+
 ## javascript books:
 - [js for cats](https://github.com/maxogden/javascript-for-cats)
 - [eloquent javascript](http://eloquentjavascript.net/)
