@@ -122,7 +122,7 @@ Keep coding.
 
 
 
-# THE BASICS
+# Part 1: the basics
 
 ## In this section, we'll get started learning:
 
@@ -568,46 +568,7 @@ thisIsAnObject['someFunction']();
 Using square bracket notations with functions looks a little wacky. It will be useful if you are storing function names in variables as strings, and need to use the variable to call the function being stored. Otherwise, stick with dot notation.
 That goes for other attributes on an object, too: stick with dot notation unless there's a good reason to use bracket notation.
 
-For instance, it's more clear to use bracket notation in a situation like this:
 
-```
-for (var key in thisIsAnObject){
-  console.log(thisIsAnObject[key]);
-}
-```
-
-This gives you an idea of how to iterate through an object using a for...in loop. Note that this will also log the method `someFunction` to the console in a useless and potentially problematic way. This approach works best with objects that do not have methods.
-
-Running the above code will return:
-
-```
-some string value
-1234
-function (){
-    return 'a function that belongs to an object';
-  }
-```
-
-Ouch, returning that function definition in that way is going to mess stuff up.
-
-You can, however, check if the any key on an object references a function using an if statement like this:
-
-```
-for (var key in thisIsAnObject){
-  if (typeof thisIsAnObject[key] !== 'function'){
-    console.log(thisIsAnObject[key]);
-  }
-}
-```
-
-This will return:
-
-```
-some string value
-1234
-```
-
-Nice, now that method on `thisIsAnObject` isn’t an issue.
 
 
 
@@ -869,6 +830,18 @@ This gives you a full list of the commands and options available through `npm`. 
 npm help name-of-command
 ```
 
+## Finding modules
+You can check out [npmjs.org](http://npmjs.org) as well as [npmsearch.com](http://npmsearch.com) to find modules that you can use in your projects.
+
+You can also run the `search` command in the terminal:
+
+```
+npm search template
+```
+
+This will return a bunch of modules related to templates!
+
+
 ## Creating a module
 Any time you're using javascript modules from `npm` in a project you should create a package.json file. In this file you can save the dependencies for your project, along with license, author, repo inforamtion, and other details.
 
@@ -892,6 +865,43 @@ And if you are installing a module (like a test framework) as a development depe
 npm install tap --save-dev
 ```
 
+Here's an example of an extremely simple module:
+
+Take a string as input, and output that string in all uppercase letters:
+
+```
+module.exports = function(someString){
+  return someString.toUpperCase();
+}
+```
+
+Put that module definition in a file called index.js.
+
+Now, create a file named test.js, and enter this text:
+
+```
+var upperize = require('./index');
+
+var pizza = upperize('pizza is really awesome!');
+
+console.log(pizza);
+```
+
+Run the test by typing this into your terminal:
+
+```
+node test.js
+```
+
+You should see this output:
+
+```
+PIZZA IS REALLY AWESOME!
+```
+
+In upcoming sections you'll learn about how to use node modules in the browser with browserify, and learn how to do more useful testing using a node module named tape.
+
+
 ## Publishing modules
 Once you've written a module, you can publish it to `npm` super easy:
 
@@ -901,16 +911,7 @@ npm publish .
 
 Before running the `npm publish` command you'll want to edit your package.json file to make sure that properties like version, author, homepage, and repository are all filled in. You should also first create a useful readme.md file, as that is displayed on a modules project page on [npmjs.org](http://npmjs.org).
 
-## Finding modules
-You can check out [npmjs.org](http://npmjs.org) as well as [npmsearch.com](http://npmsearch.com) to find modules that you can use in your projects.
 
-You can also run the `search` command in the terminal:
-
-```
-npm search template
-```
-
-This will return a bunch of modules related to templates!
 
 # Introduction to browserify.
 
@@ -1029,15 +1030,16 @@ var test = require('tape');
 var food = 'pizza';
 
 test('string test', function(t){
-    t.plan(1);
+  t.plan(1);
 
-    t.equal('pizza', food);
+  t.equal('pizza', food);
 });
 ```
 
 Let’s step through this example line by line.
 
 In this line we require the tape module, effectively importing its functionality, and assign tape to a variable named test:
+
 ```
 var test = require('tape');
 ```
@@ -1068,9 +1070,204 @@ Here’s an actual test, where we make sure that the variable `food` is equal to
 ```
 
 Here we close the callback function with a curly brace, close the call to the test function with a parentheses, and end the statement with a semi-colon:
+
 ```
 });
 ```
+
+
+
+
+# Part 2: In depth with javascript data types
+
+In this section of the book we'll review strings, numbers, arrays, and objects, and focus on a problem that often comes up with each of them.
+
+# Strings
+
+## Problem
+
+We have a large amount of text that has weird strings in it that need to be replaced.
+
+
+## How we might solve it
+
+We can use the String.replace() method.
+
+It would be cool if there were a function that accepted a buffer or a string, replaced the characters we want to remove with whatever we want instead, and returned it as either a buffer or a string, depending on what the input was.
+
+That approach assumes that when we are working with buffers, we want the data stay a buffer.
+
+We haven't talked about buffers before in this book. You can learn more about them by [reading the node.js docs about buffers](http://nodejs.org/api/buffer.html).
+
+Buffers are used for dealing with binary data. A likely reason for using buffers: you're reading or writing files using node.js.
+
+
+
+
+## Create a module
+
+Our module will be a single function that takes three arguments:
+- the string or buffer that has a substring we want to replace
+- a string or regular expression that represents the substring we want to remove
+- an optional string that will replace whatever we want to remove
+
+### Tests
+
+Let's write a test that shows how our module might be implemented.
+
+```
+var test = require('tape');
+var replace = require('./');
+
+var food = 'pizza $$$ awesome';
+
+test('string test', function(t){
+  t.plan(1);
+
+  food = replace(food, '$$$', 'is');
+
+  t.equal('pizza is awesome', food);
+});
+```
+
+
+### Implement the module
+
+```
+module.exports = function(str, remove, replacer){
+  var replacer = replacer || '';
+  var buffer = false;
+  var str = str;
+
+  if (typeof str === 'buffer'){
+    str = str.toString();
+    buffer = true;
+  }
+
+  str = str.replace(remove, replacer);
+
+  if (buffer){
+    str = new Buffer(str);
+  }
+
+  return str;
+}
+```
+
+## Usage
+
+
+
+# Numbers
+
+## Problem
+
+## How we might solve it
+
+## Create a module
+
+### Tests
+
+### Implement the module
+
+```
+module.exports = function(){
+  
+}
+```
+
+## Usage
+
+
+
+
+# Arrays
+
+## Problem
+
+## How we might solve it
+
+## Create a module
+
+### Tests
+
+### Implement the module
+
+```
+module.exports = function(){
+  
+}
+```
+
+## Usage
+
+
+
+# Objects
+
+## Problem
+
+
+```
+for (var key in thisIsAnObject){
+  console.log(thisIsAnObject[key]);
+}
+```
+
+This gives you an idea of how to iterate through an object using a for...in loop. Note that this will also log the method `someFunction` to the console in a useless and potentially problematic way. This approach works best with objects that do not have methods.
+
+Running the above code will return:
+
+```
+some string value
+1234
+function (){
+    return 'a function that belongs to an object';
+  }
+```
+
+Ouch, returning that function definition in that way is going to mess stuff up.
+
+You can, however, check if the any key on an object references a function using an if statement like this:
+
+```
+for (var key in thisIsAnObject){
+  if (typeof thisIsAnObject[key] !== 'function'){
+    console.log(thisIsAnObject[key]);
+  }
+}
+```
+
+This will return:
+
+```
+some string value
+1234
+```
+
+Nice, now that method on `thisIsAnObject` isn’t an issue.
+
+## How we might solve it
+
+## Create a module
+
+### Tests
+
+### Implement the module
+
+```
+module.exports = function(){
+  
+}
+```
+
+## Usage
+
+
+# Moving on
+
+## What happens next
+
 
 
 # Additional resources
