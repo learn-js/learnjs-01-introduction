@@ -7,17 +7,16 @@ The magic of programming belongs to those who practice.
 
 See what some old wizards (Gerald Jay Sussman and Hal Abelson) had to say about the similarities between programming and sorcery in a book called _[Structure and Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/full-text/book/book.html)_:
 
-```
-A computational process is indeed much like a sorcerer's idea of a spirit. It cannot be seen or touched. It is not composed of matter at all. However, it is very real. It can perform intellectual work. It can answer questions. It can affect the world by disbursing money at a bank or by controlling a robot arm in a factory. The programs we use to conjure processes are like a sorcerer's spells. They are carefully composed from symbolic expressions in arcane and esoteric _programming languages_ that prescribe the tasks we want our processes to perform.
-```
+> A computational process is indeed much like a sorcerer's idea of a spirit. It cannot be seen or touched. It is not composed of matter at all. However, it is very real. It can perform intellectual work. It can answer questions. It can affect the world by disbursing money at a bank or by controlling a robot arm in a factory. The programs we use to conjure processes are like a sorcerer's spells. They are carefully composed from symbolic expressions in arcane and esoteric _programming languages_ that prescribe the tasks we want our processes to perform.
 
-Let’s be sorcerers. _Open source_rers. Let's write some weird little programs, and, as they say in SICP,  “conjure the spirits of the computer with our spells.”
+
+Let’s be sorcerers. _Open sourcerers_. Let's write some weird little programs, and, as they say in SICP,  “conjure the spirits of the computer with our spells.”
 
 
 ## Overview of the future
 This book isn’t just a book.
 
-Many of the exercises in this book can also be completed through an interactive tutorial that runs in your terminal.
+Exercises similar to those in this book can be completed through an interactive tutorial that runs in your terminal.
 
 Go to [github.com/learn-js/01-introduction](github.com/learn-js/01-introduction) to install and get started with the interactive tutorial.
 
@@ -50,7 +49,7 @@ Though, if you’re feeling generous and able to purchase the book, that’ll ge
 
 
 
-## node style
+## Node style
 We will write in the style of node.js.
 
 Even our code written for the browser will utilize the node.js style of modules thanks to browserify, a tool for bundling node modules for the browser.
@@ -194,6 +193,9 @@ You should also familiarize yourself with the developer tools in Firefox. Check 
 - the javascript console and learned that we can type in javascript!
 - we can use code like `console.log()` and `console.error()` to print information to the console.
 - Chrome has a lot of useful tools, and later in the book we'll learn how they can help with experimenting with code, auditing the performance of our site, investigating the information sent between the browser and the server, and more.
+
+
+
 
 # HTML & CSS: an introduction
 
@@ -469,7 +471,7 @@ This is a newer resource, but a good one. It's got a great design and well-organ
 var nameOfVariable;
 ```
 
-> Variables are camelCase, meaning first letter is lowercase, and if the variable is made of multiple words, the first letter of following words are capitalized.
+Variables are camelCase, meaning first letter is lowercase, and if the variable is made of multiple words, the first letter of following words are capitalized.
 
 ### Creating a variable that references a string:
 
@@ -567,6 +569,341 @@ thisIsAnObject['someFunction']();
 
 Using square bracket notations with functions looks a little wacky. It will be useful if you are storing function names in variables as strings, and need to use the variable to call the function being stored. Otherwise, stick with dot notation.
 That goes for other attributes on an object, too: stick with dot notation unless there's a good reason to use bracket notation.
+
+
+# Operators, arithmetic, & control flow
+
+## How do I check if something is equal, not equal, less than or greater than?
+
+### Equals:
+
+```
+===
+```
+
+Examples:
+
+```
+true === false
+// returns false
+
+'pizza' === 'pizza'
+// returns true
+
+123 === '123'
+// returns false
+```
+
+You may have noticed there are three equals signs. If you’ve tried out other programming languages, you’ll probably remember that two equals signs were used to check equality, like this: `something == otherThing`.
+
+That works in javascript, too, but there’s a difference in the behavior of `==` and `===`.
+
+When using `==`, the types of your values will be coerced into being the same.
+
+Open your javascript console and type this in:
+
+```
+‘123’ == 123
+```
+This will return true, because the `==` operator is coercing the values to be the same type.
+
+Now try this one out in the javascript console:
+
+```
+‘123’ === 123
+```
+
+This returns false, because when using the `===` operator it checks to make sure the two values are of the same type, and if not, returns false. If the two values are the same type, then it’ll do the usual equality check.
+
+For this reason it is a good idea to use `===` rather than `==` in most situations.
+
+### Does not equal: 
+```
+!==
+```
+
+Examples:
+
+```
+'pizza' !== 'gross'
+// returns true
+
+123 !== '123'
+// returns true
+```
+
+Like the `===` operator, `!==` has a counterpart that coerces the type of values, `!=`.
+
+Greater than and less than:
+```
+>
+<
+```
+
+Examples:
+
+```
+1 < 3
+// returns true
+
+'pizza'.length > 'poop'.length
+// returns true
+```
+
+With this example: `'pizza'.length > 'poop'.length`, the `.length` method returns how many characters are in the string, so it’s really evaluating those numbers: `5 > 4`.
+
+Greater than or equal to, less than or equal to:
+```
+>=
+<=
+```
+
+Examples:
+
+```
+i = 0;
+i <= 10;
+// returns true
+
+[1, 2, 3].length >= [4, 3, 2, 1].length
+// returns false
+```
+
+Like the example above, using the .length property on an array returns the number of items in the array, so a statement like this:
+
+```
+[1, 2, 3].length >= [4, 3, 2, 1].length
+```
+
+Is really being evaluated like this:
+
+```
+3 >= 4
+```
+
+## How do I group equality statements?
+With logical operators `&&` and `||`.
+
+By using `&&`, you're saying that all of the comparison checks must return true.
+
+By using `||`, you're saying that at least one of the comparison checks must return true.
+
+Examples:
+
+```
+true && false
+// returns false
+
+3 < 10 && 'pizza'.length > 3
+// returns true
+
+false || true
+// returns true
+```
+
+
+You can also alter the boolean value that's returned from a variable by using `!`. Any time you put `!` it'll return the opposite of its actual boolean value. 
+
+Examples:
+
+```
+!true
+// returns false
+
+!false
+// returns true
+
+var pizza = null;
+!pizza
+// returns true
+```
+
+It's like saying "NOT false", or "NOT true".
+
+## How do I do math?
+
+### Add:
+```
++
+```
+
+Examples:
+
+```
+3 + 5
+// returns 8
+
+'abc' + 'def'
+// returns 'abcdef'
+```
+
+Wait, those strings just glomped together!
+
+The `+` operator will add two numbers together, and it will also concatenate two strings, meaning that the two strings will be combined into one.
+
+For fun, you should open the javascript console and experiment with using the `+` operator with arrays. The results of operations like this one are messy and unexpected:
+```
+['a', ['b', 3]] + [1, 2, 3, 'a', 'b', 'c']
+```
+
+The `+` operator is the only arithmetic operator that has this multipurpose behavior, so you won’t be able to subtract, multiply, or divide strings with the relative operators.
+
+### Subtract:
+```
+-
+```
+
+Examples:
+
+```
+5 - 3
+// returns 2
+
+1 - .1
+// returns .9
+```
+
+Note that anytime an operator is used with a mix of integer and float numbers, the result will typically be a float.
+
+
+### Multiply:
+```
+*
+```
+
+Examples:
+
+```
+var x = 5;
+x * 10;
+// returns 50
+
+var pizzasIWantToEat = 23;
+var percentageIWillActuallyEat = 23 * .033;
+pizzasIWantToEat * percentageIWillActuallyEat;
+// returns 0.759
+```
+
+
+### Divide:
+```
+/
+```
+
+Examples:
+
+```
+6 / 2
+// returns 3
+
+var i = 21
+i / 3
+// returns 7
+```
+
+
+### Remainder:
+
+```
+%
+```
+
+You can check to see if there’s a remainder from division really easily by using the remainder operator.
+
+Examples:
+
+```
+12 % 4
+// returns 0
+
+3 % 2
+// returns 1
+```
+
+This is really useful for doing things like checking to see if a number is even or odd.
+
+
+## Parentheses 
+
+Just like in the math you learned in school, you can use parentheses to group operations.
+
+Examples:
+
+```
+(3 + 3) * (21 / 7)
+// returns 18
+
+3 + 3 * 21 / 7
+// returns 12
+```
+
+## The Math object
+
+A great resource for learning more about javascript's Math object is the [Mozilla Developer Network's javascript documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math).
+
+
+## How do I control the flow of a program?
+There are a few basic approaches for controlling the flow of a javascript program.
+
+### If statements
+
+An if statement looks like this:
+
+```
+if (something === true){
+  /* do something */
+}
+```
+
+An extended example might look like this:
+
+```
+if (hungerLevel > 10) {
+  eat(food).fast();
+} else if (hungerLevel > 5) {
+  prepare(food).leisurely():
+} else {
+  do(somethingElse);
+}
+```
+
+Note that you can use `else if` to check follow-up values, and that you can use `else` for any other case, as a kind of fallback.
+
+### For loops
+
+A simple for loop looks like this:
+
+```
+for (var i = 0; var i < 10; i++){
+  console.log(i);
+}
+```
+
+
+You can use this to loop through items in an array like this:
+
+```
+var alpha = [‘a’, ‘b’, ‘c’];
+var alphaLength = alpha.length;
+for (var i = 0; var i < alphaLength; i++){
+  console.log(alpha[i]);
+}
+```
+
+Run this in your javascript console and you’ll see the items in the array being logged to the console one at a time.
+
+There’s an alternate way to iterate through arrays that is somewhat supported in browsers, and is fully supported in node, the `.forEach` method.
+
+Here’s an example:
+
+```
+var alpha = [‘a’, ‘b’, ‘c’];
+alphaLength.forEach(function(item, i, array){
+  console.log(item);
+});
+```
+
+The forEach method takes a callback function that executes once for every item in the array.
 
 
 
@@ -726,11 +1063,6 @@ Note that when we pass the callback function `poop` as an argument we don't writ
 
 Node.js is server-side javascript. It is well-suited to real-time applications and systems that are heavy on input and output. You can use it to create web servers, to manage information in databases, to build real-time communication tools, and more.
 
-## In this book, we'll use node in these ways:
-- Install command line tools available through node's package manager, `npm`.
-- Create basic web servers to serve static content to our web browser.
-- Experiment with real-time, multi-user applications.
-
 ## To learn node in detail, read these resources in this order:
 - [art of node](https://github.com/maxogden/art-of-node)
 - [streams handbook](https://github.com/substack/stream-handbook)
@@ -742,11 +1074,20 @@ There are a few options for this, and I've put them in my order of preference:
 ### Use nvm to manage node versions.
 This option gives you the most control, allows you to switch between versions of node similar to using rvm or rbenv for Ruby. [Get nvm here](https://github.com/creationix/nvm). This is the method I use, and the one I recommend.
 
+If you're on a Mac you'll need to first install Xcode, Apple's developer tools. You can now do this through the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
+
+You should then install homebrew. Homebrew is a package manager for Macs. You can install it with this command:
+
+```
+ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+```
+There are also alternate 
+
 ### Install using a package manager. 
 This is a good option, but sometimes package managers can be out of date. If the node version you'll be using matters for your project, you should make sure that the version in the package manager works for you. [Check out a list of package manager instructions here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
 
 ### Download an installer from nodejs.org.
-[Here's the node.js download page](nodejs.org/download).
+[Here's the node.js download page](http://nodejs.org/download).
 
 Installing node gives us the node package manager `npm`. We'll use it to install a wide range of packages, including web frameworks, game dev libraries, and client-side javascript modules. 
 
@@ -1267,7 +1608,37 @@ console.log(randomizer(1, 5, true));
 
 ## Problem
 
+We have a bunch of arrays that need to be put together into one array, then ordered alphabetically.
+
 ## How we might solve it
+
+We can use the `.concat()` method to concatenize arrays.
+
+We can use the `.sort()` method to order the arrays alphabetically.
+
+Here's a rough example:
+
+```
+var first = ['a', 'd', 'b'];
+var second = ['c', 'f', 'e'];
+
+var joined = first.concat(second);
+
+var ordered = joined.sort();
+
+console.log(ordered);
+```
+
+Run this, and it should return the following:
+
+```
+['a', 'b', 'c', 'd', 'e', 'f']
+```
+
+Cool, so that works.
+
+Let's write some tests to make sure everything works as expected, and to explore some possible use cases.
+
 
 ## Create a module
 
@@ -1276,17 +1647,47 @@ console.log(randomizer(1, 5, true));
 
 ```
 var test = require('tape');
-var replace = require('./');
+var concatSort = require('./concat-sort');
+
+/* a helper function to check if two arrays have the same contents */
+function arraysEqual(first, second) {
+  if(first.length !== second.length) {
+    return false;
+  }
+  
+  var firstLength = first.length;
+  for (var i = 0; i < firstLength; i++) {
+    if(first[i] !== second[i]) {
+      return false;
+    }   
+  }
+  return true;
+}
 
 
-test('string test', function(t){
-  t.plan(1);
+test('array test', function(t){
+  t.plan(2);
 
-  t.equal();
+  var firstCheck = [1, 2, 'a', 'b', 'c', 'd'];
+  var sorted = concatSort([1, 2, 'c'], ['b', 'a', 'd']);
+  t.ok(arraysEqual(firstCheck, sorted));
+
+
+  var secondCheck = [6, 5, 4, 3, 2, 1];
+  function reverser(a, b){
+    return b - a;
+  }
+
+  var reversedSort = concatSort([2, 6, 3], [1, 4, 5], reverser);
+  t.ok(arraysEqual(secondCheck, reversedSort));
 });
 ```
 
+When we run the tests using `node test.js`, we'll get an error saying `TypeError: object is not a function` because we haven't defined our concat-sort.js module file yet.
+
 ### Implement the module
+
+Create the skeleton of our module in the concat-sort.js file:
 
 ```
 module.exports = function(){
@@ -1294,7 +1695,54 @@ module.exports = function(){
 }
 ```
 
+Run the tests again and you'll see that the two tests are failing. Excellent. Now we can start filling it in based on previous experiments.
+
+We want to be able to concat two arrays, so we need those two arguments.
+
+In the second test we're also passing a callback function that is meant to provide an alternate sort behavior than the default alphanumeric sort.
+
+This can work because the `.sort()` method accepts such a callback function.
+
+Here's the working module:
+
+```
+module.exports = function(first, second, sorter){
+  return first.concat(second).sort(sorter);
+}
+```
+
 ## Usage
+
+As seen in the tests, the module can be used like this for simple concatenation and alphanumeric sorting:
+
+```
+var concatSort = require('./concat-sort');
+
+var sorted = concatSort([1, 2, 'c'], ['b', 'a', 'd']);
+console.log(sorted)
+```
+
+In this example we want only the strings in the arrays, sorted in reverse order, and everything else should be excluded:
+
+```
+var concatSort = require('./concat-sort');
+
+var firstArray = ['food', 'yum', function pizza(){}];
+var secondArray = ['pizza', 'yeah', 3333333333];
+
+function onlyStrings(value){
+  return (typeof value === 'string') ? value : false;
+}
+
+function sorter(a, b){
+  return b - a;
+}
+
+var sorted = concatSort(firstArray, secondArray, sorter);
+var filtered = sorted.filter(onlyStrings)
+
+console.log(filtered);
+```
 
 
 
@@ -1302,6 +1750,10 @@ module.exports = function(){
 
 ## Problem
 
+We need to iterate through all the properties of an object, excluding any methods on that object.
+
+
+## How we might solve it
 
 ```
 for (var key in thisIsAnObject){
@@ -1342,8 +1794,6 @@ some string value
 
 Nice, now that method on `thisIsAnObject` isn’t an issue.
 
-## How we might solve it
-
 ## Create a module
 
 ### Tests
@@ -1367,7 +1817,7 @@ test('string test', function(t){
 module.exports = function(obj){
   for (var key in obj){
     if (typeof obj[key] !== 'function'){
-      console.log(obj[key]);
+      return(obj[key]);
     }
   }
 }
@@ -1419,3 +1869,9 @@ These are almost like adventure games, except for learning programming:
 - [airbnb js style guide](https://github.com/airbnb/javascript)
 - [felixge node style guide](https://github.com/felixge/node-style-guide)
 - [jQuery's javascript style guide](http://contribute.jquery.org/style-guide/js/
+
+**[Mozilla Documentation](https://developer.mozilla.org/en-US/)**  
+Have a question about some css property or html element? The Mozilla Developer Network has awesome documentation. If you're searching on google.com for anything css/html/js related, add the abbreviation "mdn" to your search query to see results from Mozilla Documentation. This site also has a bunch of introductory tutorials that are really useful.
+
+**[WebPlatform.org](http://www.webplatform.org/)**  
+This is a newer resource, but a good one. It's got a great design and well-organized resources.
