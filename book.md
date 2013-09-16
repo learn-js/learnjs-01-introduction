@@ -9,8 +9,8 @@ See what some old wizards (Gerald Jay Sussman and Hal Abelson) had to say about 
 
 > A computational process is indeed much like a sorcerer's idea of a spirit. It cannot be seen or touched. It is not composed of matter at all. However, it is very real. It can perform intellectual work. It can answer questions. It can affect the world by disbursing money at a bank or by controlling a robot arm in a factory. The programs we use to conjure processes are like a sorcerer's spells. They are carefully composed from symbolic expressions in arcane and esoteric _programming languages_ that prescribe the tasks we want our processes to perform.
 
-
 Let’s be sorcerers. _Open sourcerers_. Let's write some weird little programs, and, as they say in SICP,  “conjure the spirits of the computer with our spells.”
+
 
 
 ## Overview of the future
@@ -23,6 +23,7 @@ Go to [github.com/learn-js/01-introduction](github.com/learn-js/01-introduction)
 This book is the first in a series about building projects with javascript. If you haven’t already you should sign up for updates by [subscribing to the Super Big Tree newsletter](http://eepurl.com/rN5Nv).
 
 
+
 ## Thank you.
 I really appreciate the support you’ve given by purchasing this book.
 I welcome you to help guide the direction of this book and the Learn.js series of javascript books. If there are particular libraries, development tools, or programming patterns that you'd like to see covered, please email me at [hi@learnjs.io](mailto:hi@learnjs.io).
@@ -30,6 +31,7 @@ I welcome you to help guide the direction of this book and the Learn.js series o
 The Learn.js series is highly inspired by the lean publishing model ([read more about it](https://leanpub.com/manifesto)) proposed by Peter Armstrong, founder of leanpub.com. It has proven successful as a way to receive feedback from you, the readers, so that together we can make the best book about javascript tools and libraries possible.
 
 You’ll get updates about upcoming books in the series, and I’d love to hear your thoughts on what would be most useful.
+
 
 
 ## Setting up a development environment
@@ -44,8 +46,6 @@ If you’re feeling like you could use more information about what a development
 If needed you can check out the Development Environments book on GitHub for free here: [github.com/sethvincent/dev-envs](http://github.com/sethvincent/dev-envs).
 
 Though, if you’re feeling generous and able to purchase the book, that’ll get you pdf, epub, and mobi versions, as well as support my work.
-
-
 
 
 
@@ -117,6 +117,7 @@ This book is meant to help guide you past common fuck-ups, but the book won’t 
 Your mastery of programming relies on how motivated you are to learn, and how diligent you are in solving frustrating errors.
 
 Keep coding.
+
 
 
 
@@ -193,7 +194,6 @@ You should also familiarize yourself with the developer tools in Firefox. Check 
 - the javascript console and learned that we can type in javascript!
 - we can use code like `console.log()` and `console.error()` to print information to the console.
 - Chrome has a lot of useful tools, and later in the book we'll learn how they can help with experimenting with code, auditing the performance of our site, investigating the information sent between the browser and the server, and more.
-
 
 
 
