@@ -14,12 +14,6 @@ Let’s be sorcerers. _Open sourcerers_. Let's write some weird little programs,
 
 
 ## Overview of the future
-This book isn’t just a book.
-
-Exercises similar to those in this book can be completed through an interactive tutorial that runs in your terminal.
-
-Go to [github.com/learn-js/01-introduction](github.com/learn-js/01-introduction) to install and get started with the interactive tutorial.
-
 This book is the first in a series about building projects with javascript. If you haven’t already you should sign up for updates by [subscribing to the Super Big Tree newsletter](http://eepurl.com/rN5Nv).
 
 
