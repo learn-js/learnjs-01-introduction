@@ -1750,12 +1750,20 @@ We need to iterate through all the properties of an object, excluding any method
 ## How we might solve it
 
 ```
-for (var key in thisIsAnObject){
-  console.log(thisIsAnObject[key]);
+var anObject = {
+  aString: 'some string value',
+  anInteger: 1234,
+  aMethod: function(){
+    return 'a function that belongs to an object';
+  }
+}
+
+for (var key in anObject){
+  console.log(anObject[key]);
 }
 ```
 
-This gives you an idea of how to iterate through an object using a for...in loop. Note that this will also log the method `someFunction` to the console in a useless and potentially problematic way. This approach works best with objects that do not have methods.
+This gives you an idea of how to iterate through an object using a for...in loop. Note that this will also log the method `aMethod` to the console in a useless and potentially problematic way. This approach works best with objects that do not have methods.
 
 Running the above code will return:
 
@@ -1772,9 +1780,9 @@ Ouch, returning that function definition in that way is going to mess stuff up.
 You can, however, check if the any key on an object references a function using an if statement like this:
 
 ```
-for (var key in thisIsAnObject){
-  if (typeof thisIsAnObject[key] !== 'function'){
-    console.log(thisIsAnObject[key]);
+for (var key in anObject){
+  if (typeof anObject[key] !== 'function'){
+    console.log(anObject[key]);
   }
 }
 ```
@@ -1786,32 +1794,46 @@ some string value
 1234
 ```
 
-Nice, now that method on `thisIsAnObject` isn’t an issue.
+Nice, now that method on `anObject` isn’t an issue.
 
 ## Create a module
 
-### Tests
+Let's create a simple module that we can reuse that will iterate through the properties of an object, but not any methods on an object.
 
+### Tests
 
 ```
 var test = require('tape');
-var replace = require('./');
+var eachKey = require('./each-object-key');
 
+var anObject = {
+  aString: 'some string value',
+  anInteger: 1234,
+  aMethod: function(){
+    return 'a function that belongs to an object';
+  }
+}
 
-test('string test', function(t){
-  t.plan(1);
+test('test object keys', function(t){
 
-  t.equal();
+  // test to make sure aMethod isn't included as one of the keys
+  eachKey(anObject, function(key, value){
+    t.notEqual(anObject.aMethod, value)
+  });
+
+  t.end();
 });
 ```
 
 ### Implement the module
 
+Create a file named each-object-key.js, and add the following module code:
+
 ```
-module.exports = function(obj){
+module.exports = function(obj, callback){
   for (var key in obj){
     if (typeof obj[key] !== 'function'){
-      return(obj[key]);
+      return callback(key, obj[key]);
     }
   }
 }
@@ -1819,17 +1841,34 @@ module.exports = function(obj){
 
 ## Usage
 
+To use the each-object-key module, do the following:
+
+```
+var eachKey = require('each-object-key');
+
+var anObject = {
+  aString: 'some string value',
+  anInteger: 1234,
+  aMethod: function(){
+    return 'a function that belongs to an object';
+  }
+}
+
+eachKey(anObject, function(key, value){
+  console.log(key, value)
+});
+
+
 
 # Moving on
 
 ## What happens next
 
 
-
 # Additional resources
 
 ## interactive terminal tutorials:
-These are almost like adventure games, except for learning programming:
+You should definitely visit [nodeschool.io](http://nodeschool.io). It features tutorials that are almost like adventure games, except for learning programming:
 
 - [Learn You The Node.js For Much Win!](https://github.com/rvagg/learnyounode) An intro to Node.js via a set of self-guided workshops.
 - [Stream Adventure](https://github.com/substack/stream-adventure). Learn about streams in node.js
