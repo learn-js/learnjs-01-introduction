@@ -37,7 +37,7 @@ From that book you’ll learn how to install node.js, work with version control 
 
 If you’re feeling like you could use more information about what a development environment is and how best to set one up, you can purchase the Development Environments book at [superbigtree.com/books/dev-envs](http://superbigtree.com/books/dev-envs).
 
-If needed you can check out the Development Environments book on GitHub for free here: [github.com/sethvincent/dev-envs](http://github.com/sethvincent/dev-envs).
+If needed you can check out the Development Environments book on GitHub for free here: [github.com/sethvincent/dev-envs-book](http://github.com/sethvincent/dev-envs-book).
 
 Though, if you’re feeling generous and able to purchase the book, that’ll get you pdf, epub, and mobi versions, as well as support my work.
 
