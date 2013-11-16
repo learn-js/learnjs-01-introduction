@@ -1664,15 +1664,17 @@ test('array test', function(t){
 
   var firstCheck = [1, 2, 'a', 'b', 'c', 'd'];
   var sorted = concatSort([1, 2, 'c'], ['b', 'a', 'd']);
+
   t.ok(arraysEqual(firstCheck, sorted));
 
-
   var secondCheck = [6, 5, 4, 3, 2, 1];
+
   function reverser(a, b){
     return b - a;
   }
 
   var reversedSort = concatSort([2, 6, 3], [1, 4, 5], reverser);
+  
   t.ok(arraysEqual(secondCheck, reversedSort));
 });
 ```
