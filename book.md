@@ -107,7 +107,8 @@ You’ll learn more about this later in the book as we go into depth with browse
 
 But for now, know that this book will be applicable to pretty much any javascript you write, and will provide additional resources for writing in the style of node.js.
 
-
+## This book is open source
+Contribute errata or content requests at the GitHub repository for this book: [github.com/learn-js/learnjs-01-introduction](https://github.com/learn-js/learnjs-01-introduction)
 
 # Part 1: the basics
 
