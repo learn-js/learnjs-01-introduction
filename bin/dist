@@ -4,7 +4,7 @@ var convert = require('ebook-convert');
 
 var epub = convert({
   source: 'book.md',
-  target: 'dist/book.epub',
+  target: 'dist/learnjs-introduction-to-javascript.epub',
   arguments: [
     ['--base-font-size', '10'], 
     ['--authors', 'Seth Vincent'],
@@ -13,12 +13,12 @@ var epub = convert({
 });
 
 epub.on('end', function(){
-  console.log('did it!, the epub exists!')
+  console.log('did it!, the epub file exists!')
 });
 
 var mobi = convert({
   source: 'book.md',
-  target: 'dist/book.mobi',
+  target: 'dist/learnjs-introduction-to-javascript.mobi',
   arguments: [
     ['--base-font-size', '10'], 
     ['--authors', 'Seth Vincent'],
@@ -27,12 +27,12 @@ var mobi = convert({
 });
 
 mobi.on('end', function(){
-  console.log('did it!, the mobi exists!')
+  console.log('did it!, the mobi file exists!')
 });
 
 var pdf = convert({
   source: 'book.md',
-  target: 'dist/book.pdf',
+  target: 'dist/learnjs-introduction-to-javascript.pdf',
   arguments: [
     ['--base-font-size', '10'], 
     ['--authors', 'Seth Vincent'],
@@ -41,5 +41,5 @@ var pdf = convert({
 });
 
 pdf.on('end', function(){
-  console.log('did it!, the pdf exists!')
+  console.log('did it!, the pdf file exists!')
 });
