@@ -6,4 +6,4 @@ leanpub
 old-manuscript
 tmp
 node_modules
-dist
+dist/*
