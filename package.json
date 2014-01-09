@@ -7,11 +7,12 @@
   },
   "scripts": {
     "leanpub": "./bin/leanpub",
-    "compile": "./bin/compile"
+    "compile": "./bin/compile",
+    "dist": "./bin/dist"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "manuscript-builder": "0.0.3"
+    "manuscript-builder": "0.0.3",
+    "ebook-convert": "0.0.2"
   }
 }
