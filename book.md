@@ -110,6 +110,7 @@ But for now, know that this book will be applicable to pretty much any javascrip
 ## This book is open source
 Contribute errata or content requests at the GitHub repository for this book: [github.com/learn-js/learnjs-01-introduction](https://github.com/learn-js/learnjs-01-introduction)
 
+
 # Part 1: the basics
 
 ## In this section, we'll get started learning:
@@ -1039,14 +1040,6 @@ eat("pizza", poop);
 
 Note that when we pass the callback function `poop` as an argument we don't write it like `poop()`. This would _call_ or execute the function, and we don't want that to happen when we pass the `poop` function as an argumet. The `poop` function gets called later inside the `eat` function.
 
-
-
-
-
-
-
-
-
 # Introduction to node.
 
 Node.js is server-side javascript. It is well-suited to real-time applications and systems that are heavy on input and output. You can use it to create web servers, to manage information in databases, to build real-time communication tools, and more.
@@ -1403,8 +1396,6 @@ Here we close the callback function with a curly brace, close the call to the te
 ```
 });
 ```
-
-
 
 
 # Part 2: In depth with javascript data types
@@ -2032,6 +2023,11 @@ someString.trim();
 
 
 
+# In-depth with Node.js
+
+This chapter is currently a work in progress.
+
+
 # Introduction to git & GitHub
 
 Developing websites and applications without using git is equivalent to writing in Microsoft Word without ever saving your work.
@@ -2048,92 +2044,92 @@ The best way to start learning git (and GitHub) is to visit [try.github.com](htt
 
 Create a git repository:
 
-~~~~~~~~
+```
 cd name-of-folder
 git init
-~~~~~~~~
+```
 
 Add files:
 
-~~~~~~~~
+```
 git add name-of-file
 
 // or add all files in directory:
 
 git add .
-~~~~~~~~
+```
 
 When you add files to a git repository they are "staged" and ready to be committed.
 
 Remove files:
-~~~~~~~~
+```
 git rm name-of-file
 
 // force removal of files:
 
 git rm -rf name-of-file-or-directory
-~~~~~~~~
+```
 
 Commit files and add a message using the `-m` option:
 
-~~~~~~~~
+```
 git commit -m 'a message describing the commit'
-~~~~~~~~
+```
 
 Create a branch:
 
-~~~~~~~~
+```
 git branch name-of-branch
-~~~~~~~~
+```
 
 Checkout a branch:
 
-~~~~~~~~
+```
 git checkout name-of-branch
-~~~~~~~~
+```
 
 Shortcut for creating a new branch and checking it out:
 
-~~~~~~~~
+```
 git checkout -b name-of-branch
-~~~~~~~~
+```
 
 Merge a branch into the master branch:
 
-~~~~~~~~
+```
 git checkout master
 git merge name-of-branch
-~~~~~~~~
+```
 
 Add a remote repository:
 
-~~~~~~~~
+```
 git remote add origin git@github.com:yourname/projectname.git
-~~~~~~~~
+```
 
 List associated repositories:
 
-~~~~~~~~
+```
 git remote -v
-~~~~~~~~
+```
 
 Pull changes from a remote repository:
 
-~~~~~~~~
+```
 git pull origin master
-~~~~~~~~
+```
 
 Push changes to a remote repository
 
-~~~~~~~~
+```
 git push origin master
-~~~~~~~~
+```
 
 Checkout a remote branch:
 
-~~~~~~~~
+```
 git checkout -t origin/haml
-~~~~~~~~
+```
 
 ## Get on GitHub
 If you haven't already, create an account at [github.com](http://github.com).
@@ -2179,33 +2175,33 @@ You can create, edit, move, rename, and delete files all through the GitHub webs
 
 You can also clone the project repository onto your computer:
 
-~~~~~~~~
+```
 git clone git@github.com:__YOUR-USERNAME__/__YOUR-PROJECT-NAME__.git
-~~~~~~~~
+```
 
 You can copy the git url to clone from the right-hand sidebar of your project repository.
 
 After cloning the repository, `cd` into it and make some changes:
 
-~~~~~~~~
+```
 cd __YOUR-PROJECT-NAME__
 nano index.html
-~~~~~~~~
+```
 
 Add a bunch of content to index.html, and change the styles in style.css.
 
 After you've made some changes, add them to the repo and commit the changes:
 
-~~~~~~~~
+```
 git add .
 git commit -m 'include a brief, clear message about the changes'
-~~~~~~~~
+```
 
 Now, push your changes back to GitHub:
 
-~~~~~~~~
+```
 git push origin gh-pages
-~~~~~~~~
+```
 
 # Introduction to grunt.js
 
@@ -2236,9 +2232,9 @@ Installing node gives us the node package manager `npm`. We'll use it to install
 
 **Run this in your terminal after installing node.js:**
 
-~~~~~~~~
+```
 npm intall -g grunt-cli
-~~~~~~~~
+```
 
 This installs the grunt command-line tool globally on your machine. Now you can run the `grunt `command!
 
@@ -2246,11 +2242,11 @@ And, it won't do anything.
 
 Bummer. **But it will give you a message like this**:
 
-~~~~~~~~
+```
 grunt-cli: The grunt command line interface. (v0.1.6)
   Fatal error: Unable to find local grunt.
   If you're seeing this message, either a Gruntfile wasn't found or grunt hasn't been installed locally to your project. For more information about installing and configuring grunt, please see the Getting Started guide: [http://gruntjs.com/getting-started](http://gruntjs.com/getting-started)
-~~~~~~~~
+```
 
 The grunt command looks for a locally installed version of grunt, which you can include in your project as a development dependency in a package.json file.
 
@@ -2280,7 +2276,7 @@ Some of the above requirements could be perceived as excessive, but they help ma
 
 **That means our package.json file will look like this:**
 
-~~~~~~~~
+```
 { 
   "name": "your-project-name", 
   "version": "0.0.1", 
@@ -2302,36 +2298,36 @@ Some of the above requirements could be perceived as excessive, but they help ma
  "node": ">=0.8" 
  } 
 }
-~~~~~~~~
+```
 
 **Go to your terminal. Create a folder that you want to serve as the project's folder:**
 
-~~~~~~~~
+```
 cd wherever/you/want/the/project/to/live
 mkdir your-project-name
 cd your-project-name
-~~~~~~~~
+```
 
 Now, create your package.json file:
 
-~~~~~~~~
+```
 touch package.json
-~~~~~~~~
+```
 
 Copy and paste the above package.json example into your package.json file using your favorite text editor. Save the file. **Now, you can run
 this:**
 
-~~~~~~~~
+```
 npm install
-~~~~~~~~
+```
 
 to install all the dependencies.
 
 If you run the command and get an error like this at the end, then something is not ok:
 
-~~~~~~~~
+```
 npm ERR! not ok code 0
-~~~~~~~~
+```
 
 There's an error of some kind that will need to be worked out. For me, typically the problem is that I messed up the syntax or put the wrong version number for a dependency, so check things like that first.
 
@@ -2341,33 +2337,33 @@ Let's make all our files and folders now!
 
 **This will make all the folders we want:**
 
-~~~~~~~~
+```
 > mkdir -p test js css/scss img
-~~~~~~~~
+```
 
 **This will make the files we want:**
 
-~~~~~~~~
+```
 touch js/player.js js/game.js js/enemies.js js/ui.js \
 touch css/scss/main.scss css/scss/reset.scss css/scss/ui.scss \
 touch test/player.js test/enemies.js test/game.js test/ui.js
-~~~~~~~~
+```
 
 Cool. Did that. **Now we make the Gruntfile:**
 
-~~~~~~~~
+```
 touch Gruntfile.js
-~~~~~~~~
+```
 
 **Open Gruntfile.js in your favorite editor and paste in this:**
 
-~~~~~~~~
+```
 module.exports = function(grunt) {
   grunt.initConfig({
     // and here we do some cool stuff
   });
 };
-~~~~~~~~
+```
 
 The above code is the required wrapper code to make a Gruntfile work. Now, remember our package.json file. Buds, we can use the values from that file in our Gruntfile.
 
@@ -2375,9 +2371,9 @@ The above code is the required wrapper code to make a Gruntfile work. Now, remem
 
 First step is to read the contents of package.json by **putting this line in Gruntfile.js**:
 
-~~~~~~~~
+```
 pkg: grunt.file.readJSON('package.json');
-~~~~~~~~
+```
 
 A package.json file is just JSON, right? Yeah, so it's easy to get at the values to do cool stuff.
 
@@ -2385,7 +2381,7 @@ For fun, let's see what it takes to run a custom task inside a Gruntfile, and ha
 
 This is a really simple task that logs the package name and version to the console, shown here as the complete Gruntfile.js:
 
-~~~~~~~~
+```
 module.exports = function(grunt) {
   grunt.initConfig({
     // read the json file
@@ -2406,24 +2402,24 @@ module.exports = function(grunt) {
     grunt.log.writeln(this.target + ': ' + this.data);   
   });
 };
-~~~~~~~~
+```
 
 **You can now run your task on the command line!:**
 
-~~~~~~~~
+```
 grunt log
-~~~~~~~~
+```
 
 
 **You should get output like this:**
 
-~~~~~~~~
+```
 Running 'log:name' (log) task 
 name: your-project-name
 Running 'log:version' (log) task
 version: 0.0.1
 Done, without errors.
-~~~~~~~~
+```
 
 If you didn't get output like that, check your Gruntfile for typos. If you did get output like that: Awesome! So we've made it pretty far. We've set up a project with a bunch of files and folders, created a package.json file with a list of devDependencies, installed the dependencies, and tried out a simple Gruntfile for running arbitrary tasks.
 
@@ -2466,8 +2462,7 @@ It's possible to use packages from both bower and component while using browseri
 Check out this great guide for using components, bower packages, amd modules, and even global variables with browserify: http://dontkry.com/posts/code/browserify-and-the-universal-module-definition.html
 
 
-
-# Next steps
+# Appendix
 
 # Additional resources
 
@@ -2512,3 +2507,65 @@ Have a question about some css property or html element? The Mozilla Developer N
 
 **[WebPlatform.org](http://www.webplatform.org/)**  
 This is a newer resource, but a good one. It's got a great design and well-organized resources.
+
+
+# Changelog
+
+## v0.6.0 - December 18, 2013
+- Typo fixes
+- Add cheatsheet and examples for string methods
+- Expand and improve objects section
+- Add back intro to git, github, grunt & package managers chapters
+- Add link to GitHub repo
+
+## v0.5.0
+- Major refactoring to turn the project into a series rather than one book.
+- Removed sections to turn this book into an introduction to javascript.
+
+## v0.4.1
+- started player and keyboard sections of node-rogue chapter
+- fixed html/css stuff in node-rogue chapter
+- add package managers comparison for npm, bower, component
+- expand introduction to git & github
+- expand intro to canvas
+- start an intro to testing chapter
+- start intro to terminal chapter
+- start chapter about voxel.js
+- add placeholders for main sections
+- rearrange some existing chapters
+- start websites section with pizza-fanpage project
+
+## v0.4.0
+- Add Introduction to npm
+- Add Introduction to callbacks
+- Add Introduction to canvas (still working on this)
+- Add Introduction to browserify
+- Substantial revisions to Chapter 01 - making a game
+- Many small typo / formatting fixes
+
+## v0.3.2
+- Substantial copy editing
+- Start chapter 1 about making an rpg game
+- Rearrange and edit Basics intro section
+
+## v0.3.1
+- start intro to node section
+- add contributors list
+- add simple keyboard interaction example
+
+## v0.3.0
+- start Basics section
+- add intro to Chrome Developer Tools
+- add intro to functions
+
+## v0.2.0:
+- added introduction to grunt.js
+- added introduction to git & GitHub
+- small typo fixes
+
+## v0.1.0:
+- first release
+- intro to functions - create an add function
+- appendix with initial style guide and additional resources
+
+
