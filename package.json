@@ -5,9 +5,8 @@
   "repository": {
     "url": "git://github.com/sethvincent/01-introduction.git"
   },
-  "main": "index.js",
   "scripts": {
-    "test": "",
+    "leanpub": "./bin/leanpub",
     "compile": "./bin/compile"
   },
   "dependencies": {
