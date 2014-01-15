@@ -3,7 +3,7 @@
 ## In this section, we'll get started learning:
 
 ### Chrome's Developer Tools
-All browsers include tools for evaluating, debugging, and auditing your code and your site's performance. This section will introduce you to the tools offered in the browser Chrome, and later in the book we'll go into these tools in more detail.
+All browsers include tools for evaluating, debugging, and auditing your code and your site's performance. This section will introduce you to the tools offered in the browser Google Chrome, and later in the book we'll go into these tools in more detail.
 
 ### Basic html and css
 For many of our projects in this book, html and css will be kept as minimal as possible. This refresher will get you up to speed if you haven't worked with css or html much before.
@@ -15,7 +15,7 @@ Here we'll go over the basic parts of javascript. We'll cover the equivalents of
 Server side javascript is a seriously awesome thing, and while this book will only give an introductory look at what's possible, we'll be using many command line tools based on node.js that are installable using `npm`, node's package manager.
 
 ### Testing javascript
-Writing tests for your code does two things: ensure your code works as expected when changes are made, and provides examples of usage of your project. When applicable we'll write the tests for a project first, before writing the code that does the real work, and we'll describe later why this is a useful workflow.
+Writing tests for your code does two things: ensure your code works as expected when changes are made, and provides examples of usage of your project. When applicable, we'll write the tests for a project first before writing the code that does the real work, and we'll describe later why this is a useful workflow.
 
 
 
@@ -26,12 +26,12 @@ Writing tests for your code does two things: ensure your code works as expected 
 console.log('hello, javascript. it's nice to meet you');
 ```
 
-Open up the browser Chrome.
+Open up the browser Google Chrome.
 
 > If you don't already have Chrome installed, download and install it now at [google.com/chrome](http://google.com/chrome)
 
 Now, use this keyboard shortcut on a Mac: command + option + j
-Or this for Windows/Linux: control + shift + j
+Or this, for Windows/Linux: control + shift + j
 
 You just opened the javascript console.
 
