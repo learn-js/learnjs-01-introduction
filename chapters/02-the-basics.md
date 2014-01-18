@@ -79,7 +79,7 @@ If you're new to building projects for the web, knowing javascript alone won't b
 
 This book focuses on javascript, but you'll certainly pick up some html and css along the way.
 
-You might find it useful to learn about html and css before reading Learn.js, or to have a resource handy that you can refer to when introduced to new html elements or css properties.
+You might find it useful to learn about html and css before reading Learn.js, or to have a resource handy that you can refer to when you're introduced to new html elements or css properties.
 
 ## But here's a quick refresher to get you started:
 
@@ -89,7 +89,7 @@ An example of an html element:
 <h1>This is a headline</h1>
 ```
 
-That's an `h1` element. It is used for the most prominent headline of a document – often the site title or article title. Note that this element has an opening tag, `<h1>, and a closing tag, `</h1`>, which looks the same except it has a forward slash, `/`.
+That's an `h1` element. It is used for the most prominent headline of a document – often the site title or article title. Note that this element has an opening tag, `<h1>`, and a closing tag, `</h1>`, which looks the same except it has a forward slash, `/`.
 
 This is a common pattern for html elements. There are a few html elements that don't require closing tags. Like these:
 
@@ -103,16 +103,16 @@ The `br` element creates a line break in text.
 <hr>
 ```
 
-The `hr` element creates a horizontal rule, a straight line, across your web site. Usually used as a break between sections.
+The `hr` element creates a horizontal rule, a straight line, across your web site. It's usually used as a break between sections.
 
 ```
-<img src="image.jpg" alt="this is the alt text of an image" />
+<img src="http://source.com/imagefilename.jpg" alt="this is the alt text of the image" />
 ```
 
 The `img` element is a little unique. Note that it has a `src` attribute that specifies the image we want to have show up, and an `alt` attribute that provides text that will be displayed for screen readers, or that might be used as a caption. The `img` element is also a self-closing tag, meaning it has a forward-slash before the closing angle bracket.
 
-## HTML attributes and CSS selectors.
-We just saw the `src` and `alt` attributes on the `img` element. There are many attributes that can be used on any given html element. Some attributes control behavior of the element, some are used as selectors for css rules.
+## HTML attributes and CSS selectors
+We just saw the `src` and `alt` attributes on the `img` element. There are many attributes that can be used on any given html element. Some attributes control behavior of the element; some are used as selectors for css rules.
 
 **Here are the two attributes most used as selectors in css rules:**
 
@@ -155,7 +155,7 @@ p.highlight {
 }
 ```
 
-One of the differences between `id` and `class` attributes, is that a `class` can be given to multiple elements on a page, whereas an `id` should be unique to one element. So we can give this class to multiple paragraphs to make them highlighted.
+One of the differences between `id` and `class` attributes is that a `class` can be given to multiple elements on a page, whereas an `id` should be unique to one element. So we can give this class to multiple paragraphs to make them highlighted in yellow.
 
 ### Where does the css go?
 There are two options: include separate css files, or place css directly in your html file. In almost all situations, including a separate css file for your styles will be a faster and more organized option.
@@ -204,7 +204,7 @@ But the cleaner option is to create a separate css file that you reference from 
 </html>
 ```
 
-This tells the browser to load the css from the `styles.css` file. Having a separate file for your styles helps with keeping your site easy to maintain. Having everything in one big html file can be a pain to work on.
+This tells the browser to load the css from the `style.css` file. Having a separate file for your styles helps with keeping your site easy to maintain. Having everything in one big html file can be a pain to work on.
 
 ### So where will the javascript be in an html file?
 
@@ -281,7 +281,7 @@ There are a few common tags used for laying out an html document. Check out this
 </html>
 ```
 
-We're using the `header` element for the header of the page, the `main` element for the content of the page, and the `footer` element for supplementary information that goes in the footer. All three of these tags are relatively new as part of html5. Another new tag is 'section'. You might use it to break up your main content into parts:
+We're using the `header` element for the header of the page, the `main` element for the content of the page, and the `footer` element for supplementary information that goes in the footer. All three of these tags are relatively new as part of html5. Another new tag is `section`. You might use it to break up your main content into parts:
 
 ```
 <main role="main">
@@ -299,7 +299,7 @@ We're using the `header` element for the header of the page, the `main` element 
 
 The `section` element is for breaking up your web page into distinct sections. Note that I've got `h1` tags in each of the sections as headers. In html5 anytime you create a new `section` you're allowed to start a new heirarchy of header tags.
 
-Where `section` elements are for specifying blocks of content on your page in a semantic way, 'div' elements are used primarily for the positioning and alignment of your content. For example, you might want to use a `div` to act as a container that restricts the width of your content:
+Where `section` elements are for specifying blocks of content on your page in a semantic way, `div` elements are used primarily for the positioning and alignment of your content. For example, you might want to use a `div` to act as a container that restricts the width of your content:
 
 ```
 <section id="part-one">
@@ -322,7 +322,7 @@ With css like below you can have the `section` tag the full width of the page wh
 The `div` is centered by using `auto` for the left and right margins (the order goes top, right, bottom, left).
 
 ### More resources
-This gives you an intro to some of the html and css concepts we'll use most often in the book. 
+These will give you an introduction to some of the html and css concepts we'll use most often in this book. 
 
 #### To learn html and css in more depth, check out these resources:
 **[Don't Fear The Internet](http://www.dontfeartheinternet.com/)**  
