@@ -347,7 +347,7 @@ This is a newer resource, but a good one. It's got a great design and well-organ
 var nameOfVariable;
 ```
 
-Variables are camelCase, meaning first letter is lowercase, and if the variable is made of multiple words, the first letter of following words are capitalized.
+Variables are written in camelCase, meaning that the first letter of the first word is in lowercase, and if the variable is made up of multiple words, then the first letter of the following words are capitalized.
 
 ### Creating a variable that references a string:
 
@@ -371,7 +371,7 @@ Numbers do not have quotes around them.
 var thisIsAnArray = [1, "two", [3, 4]];
 ```
 
-Note that one of the values in the array is a number, one is a string, and another is an array. Arrays can hold any value in any order.
+Note that one of the values in the array is a number, one is a string, and another is an array. Arrays can hold any value, in any order.
 
 ### Accessing the values in an array:
 
@@ -397,6 +397,7 @@ thisIsAnArray[2][1];
 
 ### Creating a variable that references an object:
 
+```
 var thisIsAnObject = {
   someString: 'some string value',
   someNumber: 1234,
@@ -404,6 +405,7 @@ var thisIsAnObject = {
     return 'a function that belongs to an object';
   }
 };
+```
 
 Here we're setting `someString` to `'some string value'`, `someNumber' to `1234`, and we're creating a function named `someFunction` that returns the string `'a function that belongs to an object'`. So how do we access these values?
 
@@ -444,7 +446,7 @@ thisIsAnObject['someFunction']();
 ```
 
 Using square bracket notations with functions looks a little wacky. It will be useful if you are storing function names in variables as strings, and need to use the variable to call the function being stored. Otherwise, stick with dot notation.
-That goes for other attributes on an object, too: stick with dot notation unless there's a good reason to use bracket notation.
+That goes for other attributes on an object, too -- stick with dot notation unless there's a really good reason to use bracket notation.
 
 
 # Operators, arithmetic, & control flow
@@ -503,12 +505,14 @@ Examples:
 ```
 'pizza' !== 'gross'
 // returns true
-
-123 !== '123'
-// returns true
 ```
 
 Like the `===` operator, `!==` has a counterpart that coerces the type of values, `!=`.
+
+```
+123 != '123'
+// returns true
+```
 
 Greater than and less than:
 ```
