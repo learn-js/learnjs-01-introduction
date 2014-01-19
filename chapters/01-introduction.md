@@ -28,7 +28,7 @@ I couldn’t ride a bike until I was embarrassingly old – in middle school. Al
 
 I had to really want it.
 
-You will forget commas, or type semi-colons instead pf colons, or type something with a capital letter that’s supposed to be all lowercase.
+You will forget commas, or type semi-colons instead of colons, or type something with a capital letter that’s supposed to be all lowercase.
 
 You will run a program and spend agonizing minutes wondering why it spits errors, then realize you haven’t downloaded the needed dependencies.
 
