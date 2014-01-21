@@ -643,7 +643,7 @@ Examples:
 // returns .9
 ```
 
-Note that anytime an operator is used with a mix of integer and float numbers, the result will typically be a float.
+Note that any time an operator is used with a mix of integer and float numbers, the result will typically be a float.
 
 
 ### Multiply:
@@ -659,7 +659,7 @@ x * 10;
 // returns 50
 
 var pizzasIWantToEat = 23;
-var percentageIWillActuallyEat = 23 * .033;
+var percentageIWillActuallyEat = .033;
 pizzasIWantToEat * percentageIWillActuallyEat;
 // returns 0.759
 ```
@@ -725,7 +725,7 @@ A great resource for learning more about javascript's Math object is the [Mozill
 ## How do I control the flow of a program?
 There are a few basic approaches for controlling the flow of a javascript program.
 
-### If statements
+### "if" statements
 
 An if statement looks like this:
 
@@ -749,7 +749,7 @@ if (hungerLevel > 10) {
 
 Note that you can use `else if` to check follow-up values, and that you can use `else` for any other case, as a kind of fallback.
 
-### For loops
+### "for" loops
 
 A simple for loop looks like this:
 
