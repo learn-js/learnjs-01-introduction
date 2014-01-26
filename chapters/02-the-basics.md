@@ -510,7 +510,7 @@ Examples:
 Like the `===` operator, `!==` has a counterpart that coerces the type of values, `!=`.
 
 ```
-123 != '123'
+123 !== '123'
 // returns true
 ```
 
