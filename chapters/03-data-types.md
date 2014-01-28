@@ -444,7 +444,7 @@ var anObject = {
 eachKey(anObject, function(key, value){
   console.log(key, value)
 });
-
+```
 
 # Javascript strings cheatsheet
 
