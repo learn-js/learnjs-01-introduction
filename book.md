@@ -18,7 +18,7 @@ You're about to write javascript for the first time.
 
 It’s difficult, and it doesn’t make sense at first. This is normal.
 
-You’re going to make mistakes.  There’s a trick for dealing with that problem. A trick that works really well.
+You’re going to make mistakes.  There’s a trick for dealing with that problem -- a trick that works really well.
 
 The trick is to be OK with making mistakes.
 
@@ -28,15 +28,15 @@ I couldn’t ride a bike until I was embarrassingly old – in middle school. Al
 
 I had to really want it.
 
-You will forget commas, or type semi-colons instead pf colons, or type something with a capital letter that’s supposed to be all lowercase.
+You will forget commas, or type semi-colons instead of colons, or type something with a capital letter that’s supposed to be all lowercase.
 
 You will run a program and spend agonizing minutes wondering why it spits errors, then realize you haven’t downloaded the needed dependencies.
 
-You’re going to fuck up.
+**You’re going to fuck up.**
 
 But that’s OK, because you’re OK with fucking up.
 
-This book is meant to help guide you past common fuck-ups, but the book won’t solve all your problems for you. 
+This book is meant to help guide you past common fuck-ups, but it won’t solve all your problems for you. 
 
 Your mastery of programming relies on how motivated you are to learn, and how diligent you are in solving frustrating errors.
 
@@ -46,7 +46,7 @@ Keep coding.
 
 
 ## Overview of the future
-This book is the first in a series about building projects with javascript. If you haven’t already you should sign up for updates by [subscribing to the Super Big Tree newsletter](http://eepurl.com/rN5Nv).
+This book is the first in a series about building projects with javascript. If you haven’t already, you should sign up for updates by [subscribing to the Super Big Tree newsletter](http://eepurl.com/rN5Nv).
 
 
 
@@ -54,9 +54,9 @@ This book is the first in a series about building projects with javascript. If y
 I really appreciate the support you’ve given by purchasing this book.
 I welcome you to help guide the direction of this book and the Learn.js series of javascript books. If there are particular libraries, development tools, or programming patterns that you'd like to see covered, please email me at [hi@learnjs.io](mailto:hi@learnjs.io).
 
-The Learn.js series is highly inspired by the lean publishing model ([read more about it](https://leanpub.com/manifesto)) proposed by Peter Armstrong, founder of leanpub.com. It has proven successful as a way to receive feedback from you, the readers, so that together we can make the best book about javascript tools and libraries possible.
+The Learn.js series is highly inspired by the lean publishing model ([read more about it here](https://leanpub.com/manifesto)) proposed by Peter Armstrong, founder of leanpub.com. It has proven successful as a way to receive feedback from you, the readers, so that together, we can make the best book about javascript tools and libraries possible.
 
-You’ll get updates about upcoming books in the series, and I’d love to hear your thoughts on what would be most useful.
+You’ll get updates about upcoming books in the series, and I’d love to hear your thoughts on what would be most useful to you, as a reader.
 
 ## Who are you? Who am I? What is this?
 
@@ -68,7 +68,7 @@ The book covers introductory node.js, and writing client-side code using node mo
 It’s meant as an introductory text that will get people up to speed for following books in the Learn.js series.
 
 ### The reader
-I expect that the ideal reader for this book is someone who likes exploring, imagining, and inventing for themselves. You might even have some experience with javascript already. And that’s OK, because practicing, and even repetition is an important part of learning.
+I expect that the ideal reader for this book is someone who likes exploring, imagining, and inventing for themselves. You might even have some experience with javascript already. And that’s OK, because practice, and even repetition, is an important part of learning.
 
 ### The author
 I’m Seth Vincent. I write code, stories, and music. 
@@ -82,9 +82,9 @@ In case you couldn’t tell, I currently live in Seattle, Washington.
 I write books like the one you’re reading, and build things like [crtrdg.js, a toolkit for 2d games](http://crtrdg.github.io/) at [Super Big Tree](http://superbigtree.com/).
 
 ## Setting up a development environment
-There’s a lot of wind-up to getting started programming. You should understand things like git, github, the terminal, and more.
+There’s a lot of wind-up to getting started with programming. You should understand things like git, github, the terminal, and more.
 
-Instead of baking that information into each book in the series, I created a book called Development Environments for Beginners that helps you set up a javascript development environment (as well as ruby and python, but you can skip those sections if needed).
+Instead of baking that information into each book in the series, I created a book called *Development Environments for Beginners* that helps you set up a javascript development environment (as well as ruby and python, but you can skip those sections if needed).
 
 From that book you’ll learn how to install node.js, work with version control and testing tools, best practices for automating tasks and other programming tips and tricks.
 
@@ -111,12 +111,13 @@ But for now, know that this book will be applicable to pretty much any javascrip
 Contribute errata or content requests at the GitHub repository for this book: [github.com/learn-js/learnjs-01-introduction](https://github.com/learn-js/learnjs-01-introduction)
 
 
+
 # Part 1: the basics
 
 ## In this section, we'll get started learning:
 
 ### Chrome's Developer Tools
-All browsers include tools for evaluating, debugging, and auditing your code and your site's performance. This section will introduce you to the tools offered in the browser Chrome, and later in the book we'll go into these tools in more detail.
+All browsers include tools for evaluating, debugging, and auditing your code and your site's performance. This section will introduce you to the tools offered in the browser Google Chrome, and later in the book we'll go into these tools in more detail.
 
 ### Basic html and css
 For many of our projects in this book, html and css will be kept as minimal as possible. This refresher will get you up to speed if you haven't worked with css or html much before.
@@ -128,7 +129,7 @@ Here we'll go over the basic parts of javascript. We'll cover the equivalents of
 Server side javascript is a seriously awesome thing, and while this book will only give an introductory look at what's possible, we'll be using many command line tools based on node.js that are installable using `npm`, node's package manager.
 
 ### Testing javascript
-Writing tests for your code does two things: ensure your code works as expected when changes are made, and provides examples of usage of your project. When applicable we'll write the tests for a project first, before writing the code that does the real work, and we'll describe later why this is a useful workflow.
+Writing tests for your code does two things: ensure your code works as expected when changes are made, and provides examples of usage of your project. When applicable, we'll write the tests for a project first before writing the code that does the real work, and we'll describe later why this is a useful workflow.
 
 
 
@@ -139,12 +140,12 @@ Writing tests for your code does two things: ensure your code works as expected 
 console.log('hello, javascript. it's nice to meet you');
 ```
 
-Open up the browser Chrome.
+Open up the browser Google Chrome.
 
 > If you don't already have Chrome installed, download and install it now at [google.com/chrome](http://google.com/chrome)
 
 Now, use this keyboard shortcut on a Mac: command + option + j
-Or this for Windows/Linux: control + shift + j
+Or this, for Windows/Linux: control + shift + j
 
 You just opened the javascript console.
 
@@ -168,21 +169,21 @@ Type this into the console:
 console.error('this is an error');
 ```
 
-That's an error! Note how it shows up in red. Look in the bottom right corner of the browser. You'll see a little red circle with an x in the middle, and a number on its right side. That's a helpful little indicator of errors in your javascript, and any time something is wonky with your code that red circle will show up.
+That's an error! Note how it shows up in red. Look in the bottom right corner of the browser. You'll see a little red circle with an x in the middle, and a number on its right side. That's a helpful little indicator of errors in your javascript, and any time something is wonky with your code, that red circle will show up.
 
 With most errors you'll also be able to see a line number from your javascript file, which will help you pinpoint the offending code. We'll get into errors and debugging in more detail later in the book.
 
 ## More developer tools
-The javascript console is just one of the tools available for web development inside of Chrome. For this book we will focus on using Chrome and its developer tools for two reasons: Chrome has a a set of versatile and powerful tools, and focusing on the tools of one browser helps keep the instructions simple.
+The javascript console is just one of the tools available for web development inside of Chrome. For this book, we will focus on using Chrome and its developer tools for two reasons: Chrome has a a set of versatile and powerful tools, and focusing on the tools of one browser helps keep the instructions simple.
 
 Check out the [Chrome Developer Tools documentation](https://developers.google.com/chrome-developer-tools/) to learn more about all that Chrome has to offer for developers working with javascript, html, and css.
 
-You should also familiarize yourself with the developer tools in Firefox. Check out the [Mozilla Developer Network documentation for the Firefox developer tools](https://developer.mozilla.org/en-US/docs/Tools).
+It's also good to familiarize yourself with the developer tools in Firefox. Check out the [Mozilla Developer Network documentation for the Firefox developer tools](https://developer.mozilla.org/en-US/docs/Tools).
 
-## Recap! We learned that:
+## Recap! We learned:
 - the javascript console and learned that we can type in javascript!
-- we can use code like `console.log()` and `console.error()` to print information to the console.
-- Chrome has a lot of useful tools, and later in the book we'll learn how they can help with experimenting with code, auditing the performance of our site, investigating the information sent between the browser and the server, and more.
+- that we can use code like `console.log()` and `console.error()` to print information to the console
+- that Chrome has a lot of useful tools (later in the book, we'll learn how they can help with experimenting with code, auditing the performance of our site, investigating the information sent between the browser and the server, and more!)
 
 
 
@@ -192,7 +193,7 @@ If you're new to building projects for the web, knowing javascript alone won't b
 
 This book focuses on javascript, but you'll certainly pick up some html and css along the way.
 
-You might find it useful to learn about html and css before reading Learn.js, or to have a resource handy that you can refer to when introduced to new html elements or css properties.
+You might find it useful to learn about html and css before reading Learn.js, or to have a resource handy that you can refer to when you're introduced to new html elements or css properties.
 
 ## But here's a quick refresher to get you started:
 
@@ -202,7 +203,7 @@ An example of an html element:
 <h1>This is a headline</h1>
 ```
 
-That's an `h1` element. It is used for the most prominent headline of a document – often the site title or article title. Note that this element has an opening tag, `<h1>, and a closing tag, `</h1`>, which looks the same except it has a forward slash, `/`.
+That's an `h1` element. It is used for the most prominent headline of a document – often the site title or article title. Note that this element has an opening tag, `<h1>`, and a closing tag, `</h1>`, which looks the same except it has a forward slash, `/`.
 
 This is a common pattern for html elements. There are a few html elements that don't require closing tags. Like these:
 
@@ -216,16 +217,16 @@ The `br` element creates a line break in text.
 <hr>
 ```
 
-The `hr` element creates a horizontal rule, a straight line, across your web site. Usually used as a break between sections.
+The `hr` element creates a horizontal rule, a straight line, across your web site. It's usually used as a break between sections.
 
 ```
-<img src="image.jpg" alt="this is the alt text of an image" />
+<img src="http://source.com/imagefilename.jpg" alt="this is the alt text of the image" />
 ```
 
 The `img` element is a little unique. Note that it has a `src` attribute that specifies the image we want to have show up, and an `alt` attribute that provides text that will be displayed for screen readers, or that might be used as a caption. The `img` element is also a self-closing tag, meaning it has a forward-slash before the closing angle bracket.
 
-## HTML attributes and CSS selectors.
-We just saw the `src` and `alt` attributes on the `img` element. There are many attributes that can be used on any given html element. Some attributes control behavior of the element, some are used as selectors for css rules.
+## HTML attributes and CSS selectors
+We just saw the `src` and `alt` attributes on the `img` element. There are many attributes that can be used on any given html element. Some attributes control behavior of the element; some are used as selectors for css rules.
 
 **Here are the two attributes most used as selectors in css rules:**
 
@@ -268,7 +269,7 @@ p.highlight {
 }
 ```
 
-One of the differences between `id` and `class` attributes, is that a `class` can be given to multiple elements on a page, whereas an `id` should be unique to one element. So we can give this class to multiple paragraphs to make them highlighted.
+One of the differences between `id` and `class` attributes is that a `class` can be given to multiple elements on a page, whereas an `id` should be unique to one element. So we can give this class to multiple paragraphs to make them highlighted in yellow.
 
 ### Where does the css go?
 There are two options: include separate css files, or place css directly in your html file. In almost all situations, including a separate css file for your styles will be a faster and more organized option.
@@ -317,7 +318,7 @@ But the cleaner option is to create a separate css file that you reference from 
 </html>
 ```
 
-This tells the browser to load the css from the `styles.css` file. Having a separate file for your styles helps with keeping your site easy to maintain. Having everything in one big html file can be a pain to work on.
+This tells the browser to load the css from the `style.css` file. Having a separate file for your styles helps with keeping your site easy to maintain. Having everything in one big html file can be a pain to work on.
 
 ### So where will the javascript be in an html file?
 
@@ -394,7 +395,7 @@ There are a few common tags used for laying out an html document. Check out this
 </html>
 ```
 
-We're using the `header` element for the header of the page, the `main` element for the content of the page, and the `footer` element for supplementary information that goes in the footer. All three of these tags are relatively new as part of html5. Another new tag is 'section'. You might use it to break up your main content into parts:
+We're using the `header` element for the header of the page, the `main` element for the content of the page, and the `footer` element for supplementary information that goes in the footer. All three of these tags are relatively new as part of html5. Another new tag is `section`. You might use it to break up your main content into parts:
 
 ```
 <main role="main">
@@ -412,7 +413,7 @@ We're using the `header` element for the header of the page, the `main` element 
 
 The `section` element is for breaking up your web page into distinct sections. Note that I've got `h1` tags in each of the sections as headers. In html5 anytime you create a new `section` you're allowed to start a new heirarchy of header tags.
 
-Where `section` elements are for specifying blocks of content on your page in a semantic way, 'div' elements are used primarily for the positioning and alignment of your content. For example, you might want to use a `div` to act as a container that restricts the width of your content:
+Where `section` elements are for specifying blocks of content on your page in a semantic way, `div` elements are used primarily for the positioning and alignment of your content. For example, you might want to use a `div` to act as a container that restricts the width of your content:
 
 ```
 <section id="part-one">
@@ -435,7 +436,7 @@ With css like below you can have the `section` tag the full width of the page wh
 The `div` is centered by using `auto` for the left and right margins (the order goes top, right, bottom, left).
 
 ### More resources
-This gives you an intro to some of the html and css concepts we'll use most often in the book. 
+These will give you an introduction to some of the html and css concepts we'll use most often in this book. 
 
 #### To learn html and css in more depth, check out these resources:
 **[Don't Fear The Internet](http://www.dontfeartheinternet.com/)**  
@@ -460,7 +461,7 @@ This is a newer resource, but a good one. It's got a great design and well-organ
 var nameOfVariable;
 ```
 
-Variables are camelCase, meaning first letter is lowercase, and if the variable is made of multiple words, the first letter of following words are capitalized.
+Variables are written in camelCase, meaning that the first letter of the first word is in lowercase, and if the variable is made up of multiple words, then the first letter of the following words are capitalized.
 
 ### Creating a variable that references a string:
 
@@ -484,7 +485,7 @@ Numbers do not have quotes around them.
 var thisIsAnArray = [1, "two", [3, 4]];
 ```
 
-Note that one of the values in the array is a number, one is a string, and another is an array. Arrays can hold any value in any order.
+Note that one of the values in the array is a number, one is a string, and another is an array. Arrays can hold any value, in any order.
 
 ### Accessing the values in an array:
 
@@ -510,6 +511,7 @@ thisIsAnArray[2][1];
 
 ### Creating a variable that references an object:
 
+```
 var thisIsAnObject = {
   someString: 'some string value',
   someNumber: 1234,
@@ -517,6 +519,7 @@ var thisIsAnObject = {
     return 'a function that belongs to an object';
   }
 };
+```
 
 Here we're setting `someString` to `'some string value'`, `someNumber' to `1234`, and we're creating a function named `someFunction` that returns the string `'a function that belongs to an object'`. So how do we access these values?
 
@@ -557,7 +560,7 @@ thisIsAnObject['someFunction']();
 ```
 
 Using square bracket notations with functions looks a little wacky. It will be useful if you are storing function names in variables as strings, and need to use the variable to call the function being stored. Otherwise, stick with dot notation.
-That goes for other attributes on an object, too: stick with dot notation unless there's a good reason to use bracket notation.
+That goes for other attributes on an object, too -- stick with dot notation unless there's a really good reason to use bracket notation.
 
 
 # Operators, arithmetic, & control flow
@@ -616,12 +619,14 @@ Examples:
 ```
 'pizza' !== 'gross'
 // returns true
-
-123 !== '123'
-// returns true
 ```
 
 Like the `===` operator, `!==` has a counterpart that coerces the type of values, `!=`.
+
+```
+123 !== '123'
+// returns true
+```
 
 Greater than and less than:
 ```
@@ -752,7 +757,7 @@ Examples:
 // returns .9
 ```
 
-Note that anytime an operator is used with a mix of integer and float numbers, the result will typically be a float.
+Note that any time an operator is used with a mix of integer and float numbers, the result will typically be a float.
 
 
 ### Multiply:
@@ -768,7 +773,7 @@ x * 10;
 // returns 50
 
 var pizzasIWantToEat = 23;
-var percentageIWillActuallyEat = 23 * .033;
+var percentageIWillActuallyEat = .033;
 pizzasIWantToEat * percentageIWillActuallyEat;
 // returns 0.759
 ```
@@ -834,7 +839,7 @@ A great resource for learning more about javascript's Math object is the [Mozill
 ## How do I control the flow of a program?
 There are a few basic approaches for controlling the flow of a javascript program.
 
-### If statements
+### "if" statements
 
 An if statement looks like this:
 
@@ -858,7 +863,7 @@ if (hungerLevel > 10) {
 
 Note that you can use `else if` to check follow-up values, and that you can use `else` for any other case, as a kind of fallback.
 
-### For loops
+### "for" loops
 
 A simple for loop looks like this:
 
@@ -872,22 +877,22 @@ for (var i = 0; var i < 10; i++){
 You can use this to loop through items in an array like this:
 
 ```
-var alpha = [‘a’, ‘b’, ‘c’];
+var alpha = ['a', 'b', 'c'];
 var alphaLength = alpha.length;
-for (var i = 0; var i < alphaLength; i++){
+for (var i = 0; i < alphaLength; i++){
   console.log(alpha[i]);
 }
 ```
 
 Run this in your javascript console and you’ll see the items in the array being logged to the console one at a time.
 
-There’s an alternate way to iterate through arrays that is somewhat supported in browsers, and is fully supported in node, the `.forEach` method.
+There’s an alternate way to iterate through arrays that is somewhat supported in browsers, and is fully supported in Node, the `.forEach` method.
 
 Here’s an example:
 
 ```
 var alpha = [‘a’, ‘b’, ‘c’];
-alphaLength.forEach(function(item, i, array){
+alpha.forEach(function(item, i, array){
   console.log(item);
 });
 ```
@@ -1398,6 +1403,7 @@ Here we close the callback function with a curly brace, close the call to the te
 ```
 
 
+
 # Part 2: In depth with javascript data types
 
 In this section of the book we'll review strings, numbers, arrays, and objects, and focus on a problem that often comes up with each of them.
@@ -1844,7 +1850,7 @@ var anObject = {
 eachKey(anObject, function(key, value){
   console.log(key, value)
 });
-
+```
 
 # Javascript strings cheatsheet
 
