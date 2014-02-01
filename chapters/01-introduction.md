@@ -18,7 +18,7 @@ You're about to write javascript for the first time.
 
 It’s difficult, and it doesn’t make sense at first. This is normal.
 
-You’re going to make mistakes.  There’s a trick for dealing with that problem. A trick that works really well.
+You’re going to make mistakes.  There’s a trick for dealing with that problem -- a trick that works really well.
 
 The trick is to be OK with making mistakes.
 
@@ -28,15 +28,15 @@ I couldn’t ride a bike until I was embarrassingly old – in middle school. Al
 
 I had to really want it.
 
-You will forget commas, or type semi-colons instead pf colons, or type something with a capital letter that’s supposed to be all lowercase.
+You will forget commas, or type semicolons instead pf colons, or type something with a capital letter that’s supposed to be all lowercase.
 
 You will run a program and spend agonizing minutes wondering why it spits errors, then realize you haven’t downloaded the needed dependencies.
 
-You’re going to fuck up.
+**You’re going to fuck up.**
 
 But that’s OK, because you’re OK with fucking up.
 
-This book is meant to help guide you past common fuck-ups, but the book won’t solve all your problems for you. 
+This book is meant to help guide you past common fuck-ups, but it won’t solve all your problems for you. 
 
 Your mastery of programming relies on how motivated you are to learn, and how diligent you are in solving frustrating errors.
 
@@ -46,7 +46,7 @@ Keep coding.
 
 
 ## Overview of the future
-This book is the first in a series about building projects with javascript. If you haven’t already you should sign up for updates by [subscribing to the Super Big Tree newsletter](http://eepurl.com/rN5Nv).
+This book is the first in a series about building projects with javascript. If you haven’t already, you should sign up for updates by [subscribing to the Super Big Tree newsletter](http://eepurl.com/rN5Nv).
 
 
 
@@ -54,9 +54,9 @@ This book is the first in a series about building projects with javascript. If y
 I really appreciate the support you’ve given by purchasing this book.
 I welcome you to help guide the direction of this book and the Learn.js series of javascript books. If there are particular libraries, development tools, or programming patterns that you'd like to see covered, please email me at [hi@learnjs.io](mailto:hi@learnjs.io).
 
-The Learn.js series is highly inspired by the lean publishing model ([read more about it](https://leanpub.com/manifesto)) proposed by Peter Armstrong, founder of leanpub.com. It has proven successful as a way to receive feedback from you, the readers, so that together we can make the best book about javascript tools and libraries possible.
+The Learn.js series is highly inspired by the lean publishing model ([read more about it here](https://leanpub.com/manifesto)) proposed by Peter Armstrong, founder of leanpub.com. It has proven successful as a way to receive feedback from you, the readers, so that together, we can make the best book about javascript tools and libraries possible.
 
-You’ll get updates about upcoming books in the series, and I’d love to hear your thoughts on what would be most useful.
+You’ll get updates about upcoming books in the series, and I’d love to hear your thoughts on what would be most useful to you, as a reader.
 
 ## Who are you? Who am I? What is this?
 
@@ -68,7 +68,7 @@ The book covers introductory node.js, and writing client-side code using node mo
 It’s meant as an introductory text that will get people up to speed for following books in the Learn.js series.
 
 ### The reader
-I expect that the ideal reader for this book is someone who likes exploring, imagining, and inventing for themselves. You might even have some experience with javascript already. And that’s OK, because practicing, and even repetition is an important part of learning.
+I expect that the ideal reader for this book is someone who likes exploring, imagining, and inventing for themselves. You might even have some experience with javascript already. And that’s OK, because practice, and even repetition, is an important part of learning.
 
 ### The author
 I’m Seth Vincent. I write code, stories, and music. 
@@ -82,9 +82,9 @@ In case you couldn’t tell, I currently live in Seattle, Washington.
 I write books like the one you’re reading, and build things like [crtrdg.js, a toolkit for 2d games](http://crtrdg.github.io/) at [Super Big Tree](http://superbigtree.com/).
 
 ## Setting up a development environment
-There’s a lot of wind-up to getting started programming. You should understand things like git, github, the terminal, and more.
+There’s a lot of wind-up to getting started with programming. You should understand things like git, github, the terminal, and more.
 
-Instead of baking that information into each book in the series, I created a book called Development Environments for Beginners that helps you set up a javascript development environment (as well as ruby and python, but you can skip those sections if needed).
+Instead of baking that information into each book in the series, I created a book called *Development Environments for Beginners* that helps you set up a javascript development environment (as well as ruby and python, but you can skip those sections if needed).
 
 From that book you’ll learn how to install node.js, work with version control and testing tools, best practices for automating tasks and other programming tips and tricks.
 
