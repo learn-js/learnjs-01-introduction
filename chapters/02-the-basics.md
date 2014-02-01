@@ -765,20 +765,20 @@ You can use this to loop through items in an array like this:
 ```
 var alpha = ['a', 'b', 'c'];
 var alphaLength = alpha.length;
-for (var i = 0; var i < alphaLength; i++){
+for (var i = 0; i < alphaLength; i++){
   console.log(alpha[i]);
 }
 ```
 
 Run this in your javascript console and you’ll see the items in the array being logged to the console one at a time.
 
-There’s an alternate way to iterate through arrays that is somewhat supported in browsers, and is fully supported in node, the `.forEach` method.
+There’s an alternate way to iterate through arrays that is somewhat supported in browsers, and is fully supported in Node, the `.forEach` method.
 
 Here’s an example:
 
 ```
 var alpha = [‘a’, ‘b’, ‘c’];
-alphaLength.forEach(function(item, i, array){
+alpha.forEach(function(item, i, array){
   console.log(item);
 });
 ```
