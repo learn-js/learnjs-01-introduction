@@ -64,7 +64,7 @@ The javascript console is just one of the tools available for web development in
 
 Check out the [Chrome Developer Tools documentation](https://developers.google.com/chrome-developer-tools/) to learn more about all that Chrome has to offer for developers working with javascript, html, and css.
 
-You should also familiarize yourself with the developer tools in Firefox. Check out the [Mozilla Developer Network documentation for the Firefox developer tools](https://developer.mozilla.org/en-US/docs/Tools).
+It's also good to familiarize yourself with the developer tools in Firefox. Check out the [Mozilla Developer Network documentation for the Firefox developer tools](https://developer.mozilla.org/en-US/docs/Tools).
 
 ## Recap! We learned:
 - the javascript console and learned that we can type in javascript!
@@ -763,7 +763,7 @@ for (var i = 0; var i < 10; i++){
 You can use this to loop through items in an array like this:
 
 ```
-var alpha = [‘a’, ‘b’, ‘c’];
+var alpha = ['a', 'b', 'c'];
 var alphaLength = alpha.length;
 for (var i = 0; var i < alphaLength; i++){
   console.log(alpha[i]);
