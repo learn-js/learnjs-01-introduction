@@ -1,5 +1,7 @@
 # Changelog
 
+## v0.7.0 - February 3, 2014
+
 ## v0.6.0 - December 18, 2013
 - Typo fixes
 - Add cheatsheet and examples for string methods

@@ -189,14 +189,9 @@ Grunt is a tool for managing the javascript, css, and html files of your web pro
 
 ### Install node:
 
-There are a few options for this, and I've put them in my order of preference:
+You should already have Node.js installed from chapter 4, "In-depth with Node.js". If not, backtrack to that chapter for a guide to installing Node.
 
-**Use nvm to manage node versions** This option gives you the most control, allows you to switch between versions of node similar to using rvm or rbenv for Ruby. [Get nvm here](https://github.com/creationix/nvm).
-
-**Install using a package manager.** This is a good option, but sometimes package managers can be out of date. If the node version you'll be using matters for your project, you should make sure that the version in the package manager works for you. [Check out a list of package manager instructions here][https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager].
-
-**Download an installer from nodejs.org.
-**[Here's the node.js download page][nodejs.org/download].
+### Install grunt-cli
 
 Installing node gives us the node package manager `npm`. We'll use it to install grunt-cli, which is the command-line tool that is used to run grunt tasks. 
 
