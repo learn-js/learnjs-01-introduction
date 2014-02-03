@@ -125,12 +125,11 @@ For many of our projects in this book, html and css will be kept as minimal as p
 ### Javascript syntax, variables, data types, and functions
 Here we'll go over the basic parts of javascript. We'll cover the equivalents of a programming language's grammar and punctuation, as well as the basic building blocks of javascript: strings, numbers, booleans, arrays, objects, and functions.
 
-### Node.js and npm
-Server side javascript is a seriously awesome thing, and while this book will only give an introductory look at what's possible, we'll be using many command line tools based on node.js that are installable using `npm`, node's package manager.
+### Node.js, npm, & browserify
+Server side javascript is a seriously awesome thing, and while this book will only give an introductory look at what's possible, we'll be using many command line tools based on node.js that are installable using `npm`, node's package manager. We'll also introduce browserify, a tool for bundling Node-style modules for the browser that also allows the use of many npm and core Node modules in the browser.
 
 ### Testing javascript
 Writing tests for your code does two things: ensure your code works as expected when changes are made, and provides examples of usage of your project. When applicable, we'll write the tests for a project first before writing the code that does the real work, and we'll describe later why this is a useful workflow.
-
 
 
 # Chrome Developer Tools
@@ -184,7 +183,6 @@ It's also good to familiarize yourself with the developer tools in Firefox. Chec
 - the javascript console and learned that we can type in javascript!
 - that we can use code like `console.log()` and `console.error()` to print information to the console
 - that Chrome has a lot of useful tools (later in the book, we'll learn how they can help with experimenting with code, auditing the performance of our site, investigating the information sent between the browser and the server, and more!)
-
 
 
 # HTML & CSS: an introduction
@@ -453,9 +451,9 @@ This is a newer resource, but a good one. It's got a great design and well-organ
 
 
 
-## Variables
+# JavaScript variables
 
-### Creating a variable:
+## Creating a variable:
 
 ```
 var nameOfVariable;
@@ -563,7 +561,8 @@ Using square bracket notations with functions looks a little wacky. It will be u
 That goes for other attributes on an object, too -- stick with dot notation unless there's a really good reason to use bracket notation.
 
 
-# Operators, arithmetic, & control flow
+
+# Operators & arithmetic
 
 ## How do I check if something is equal, not equal, less than or greater than?
 
@@ -831,12 +830,16 @@ Examples:
 // returns 12
 ```
 
-## The Math object
+### The Math object
 
 A great resource for learning more about javascript's Math object is the [Mozilla Developer Network's javascript documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math).
 
 
-## How do I control the flow of a program?
+
+# Control flow: making decisions in code
+
+> How do I control the flow of a program?
+
 There are a few basic approaches for controlling the flow of a javascript program.
 
 ### "if" statements
@@ -863,7 +866,25 @@ if (hungerLevel > 10) {
 
 Note that you can use `else if` to check follow-up values, and that you can use `else` for any other case, as a kind of fallback.
 
+## Loops
+
+### "while" loops
+
+```
+var i = 0;
+
+while (i < 10){
+  console.log(i);
+  i = i + 1;
+}
+```
+
 ### "for" loops
+
+Any time you want a program to do something a specific number of times, or you want to perform an action on every item in an array or object, you'll likely end up using a loop.
+
+### "for" loops
+A for loop
 
 A simple for loop looks like this:
 
@@ -899,8 +920,20 @@ alpha.forEach(function(item, i, array){
 
 The forEach method takes a callback function that executes once for every item in the array.
 
+### The "for ... in" loop
 
+The forEach method works great for arrays, but for objects I typically use the "for ... in" loop.
 
+```
+var foods = {
+  pizza: ['cheese', 'dough', 'sauce'],
+  taco: ['tortilla', 'cheese', 'hot sauce']
+}
+
+for (var type in foods) {
+  console.log (type + ': ' + foods[type]);
+}
+```
 
 
 # Functions
@@ -1045,7 +1078,8 @@ eat("pizza", poop);
 
 Note that when we pass the callback function `poop` as an argument we don't write it like `poop()`. This would _call_ or execute the function, and we don't want that to happen when we pass the `poop` function as an argumet. The `poop` function gets called later inside the `eat` function.
 
-# Introduction to node.
+
+# Getting started with Node.js
 
 Node.js is server-side javascript. It is well-suited to real-time applications and systems that are heavy on input and output. You can use it to create web servers, to manage information in databases, to build real-time communication tools, and more.
 
@@ -1067,7 +1101,6 @@ You should then install homebrew. Homebrew is a package manager for Macs. You ca
 ```
 ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 ```
-There are also alternate 
 
 ### Install using a package manager. 
 This is a good option, but sometimes package managers can be out of date. If the node version you'll be using matters for your project, you should make sure that the version in the package manager works for you. [Check out a list of package manager instructions here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
@@ -1078,6 +1111,7 @@ This is a good option, but sometimes package managers can be out of date. If the
 Installing node gives us the node package manager `npm`. We'll use it to install a wide range of packages, including web frameworks, game dev libraries, and client-side javascript modules. 
 
 > This section of the book is still a work in progress. Make suggestions at [github.com/learn-js/learnjs/issues](http://github.com/learn-js/learnjs/issues).
+
 
 # Introduction to npm
 
@@ -1334,7 +1368,7 @@ You'll see `pizza is extremely yummy` in the javascript console!
 
 
 
-# Introduction to testing
+# Introduction to testing with tape
 
 We’ll be testing code using [tape](https://github.com/substack/tape).
 
@@ -1387,13 +1421,13 @@ The first argument is an arbitrary string, whatever description you want to expl
 In the following line we specify how many things you will test:
 
 ```
-  t.plan(1);
+t.plan(1);
 ```
 
 Here’s an actual test, where we make sure that the variable `food` is equal to the string `’pizza’`:
 
 ```
-  t.equal('pizza', food);
+t.equal('pizza', food);
 ```
 
 Here we close the callback function with a curly brace, close the call to the test function with a parentheses, and end the statement with a semi-colon:
@@ -1403,10 +1437,446 @@ Here we close the callback function with a curly brace, close the call to the te
 ```
 
 
+# Introduction to git & GitHub
+
+Developing websites and applications without using git is equivalent to writing in Microsoft Word without ever saving your work.
+
+**Use git.**
+
+Git is a version control system, which means it can track every change you make to your code. This allows you to review and edit past versions if you mess something up. And it allows you to figure out when errors were introduced to the code.
+
+There are many other bonuses to using git, which are mostly out of this book's scope.
+
+The best way to start learning git (and GitHub) is to visit [try.github.com](http://try.github.com). You should also try [githug, a game for learning git](https://github.com/Gazler/githug).
+
+## Here are some basics of using git:
+
+Create a git repository:
+
+```
+cd name-of-folder
+git init
+```
+
+Add files:
+
+```
+git add name-of-file
+
+// or add all files in directory:
+
+git add .
+```
+
+When you add files to a git repository they are "staged" and ready to be committed.
+
+Remove files:
+```
+git rm name-of-file
+
+// force removal of files:
+
+git rm -rf name-of-file-or-directory
+```
+
+Commit files and add a message using the `-m` option:
+
+```
+git commit -m 'a message describing the commit'
+```
+
+Create a branch:
+
+```
+git branch name-of-branch
+```
+
+Checkout a branch:
+
+```
+git checkout name-of-branch
+```
+
+Shortcut for creating a new branch and checking it out:
+
+```
+git checkout -b name-of-branch
+```
+
+Merge a branch into the master branch:
+
+```
+git checkout master
+git merge name-of-branch
+```
+
+Add a remote repository:
+
+```
+git remote add origin git@github.com:yourname/projectname.git
+```
+
+List associated repositories:
+
+```
+git remote -v
+```
+
+Pull changes from a remote repository:
+
+```
+git pull origin master
+```
+
+Push changes to a remote repository
+
+```
+git push origin master
+```
+
+Checkout a remote branch:
+
+```
+git checkout -t origin/haml
+```
+
+## Get on GitHub
+If you haven't already, create an account at [github.com](http://github.com).
+
+GitHub is a great place to host your code. Many employers hiring for developer and designer positions will ask for a GitHub profile, and they'll use your GitHub activity as part of the criteria in their decision-making process.
+
+In fact, if you're looking to get a job with a particular company, try to find _their_ GitHub profile and start contributing to their open source projects. This will help you stand out, and they'll already know your technical abilities based on your open source contributions. That's a big win.
+
+GitHub has become the de facto code hosting service for most open source communities.
+
+### With GitHub Pages you can:
+- design a website any way you want by having complete control over the html, css, and javascript.
+- use simple templates for getting started using GitHub Pages.
+- create sites for yourself and all of your projects hosted on GitHub.
+- use a custom domain name if you want!
+
+Visit the [help section for GitHub Pages](https://help.github.com/categories/20/articles) to learn more details about hosting sites on GitHub.
+
+
+## Create a site for yourself using GitHub
+
+GitHub has a useful service called [GitHub Pages](http://pages.github.com) that allows you to host a simple site on their servers for free.
+
+To get started, fork this simple template: [github.com/maxogden/gh-pages-template](https://github.com/maxogden/gh-pages-template).
+
+Visit that github project, make sure you're logged in, and click Fork in the upper right side of the screen.
+
+Fork gh-pages-template to your personal account.
+
+Rename the repository from gh-pages-template to whatever you want by clicking on Settings on the right side of your fork of the repository, and changing the name there. GitHub will warn
+
+That's it! You now have a website hosted through GitHub Pages.
+
+You'll be able to visit your site at __YOUR-USERNAME__.github.com/__YOUR-PROJECT-NAME__.
+
+You'll want to edit the content though, right? Add your cat pictures or resume or pizza recipes? You can do that.
+
+You can create, edit, move, rename, and delete files all through the GitHub website. Check out these blog posts on GitHub for details on how to do those things:
+- [Create files](https://github.com/blog/1327-creating-files-on-github)
+- [Edit files](https://github.com/blog/143-inline-file-editing)
+- [Move and rename files](https://github.com/blog/1436-moving-and-renaming-files-on-github)
+- [Delete files](https://github.com/blog/1545-deleting-files-on-github)
+
+You can also clone the project repository onto your computer:
+
+```
+git clone git@github.com:__YOUR-USERNAME__/__YOUR-PROJECT-NAME__.git
+```
+
+You can copy the git url to clone from the right-hand sidebar of your project repository.
+
+After cloning the repository, `cd` into it and make some changes:
+
+```
+cd __YOUR-PROJECT-NAME__
+nano index.html
+```
+
+Add a bunch of content to index.html, and change the styles in style.css.
+
+After you've made some changes, add them to the repo and commit the changes:
+
+```
+git add .
+git commit -m 'include a brief, clear message about the changes'
+```
+
+Now, push your changes back to GitHub:
+
+```
+git push origin gh-pages
+```
+
+
+# Introduction to grunt.js
+
+Grunt is a tool for managing the javascript, css, and html files of your web project. Grunt is a task manager similar to Ruby's `rake`. You can run any arbitrary tasks you want, and there are a number of grunt plugins that make it easy to set up common tasks. Grunt is useful for running tests or for build steps, including turning sass, stylus, or less files into css, concatenating files, or creating .zip or .tar.gz packages of your project.
+
+### Outline of the steps in this tutorial:
+
+-   Install node.
+-   Install grunt-cli.
+-   Setup project.
+-   Set up package.json.
+-   Create Gruntfile.js.
+-   Run grunt tasks.
+-   Make an awesome project.
+
+### Install node:
+
+You should already have Node.js installed from chapter 4, "In-depth with Node.js". If not, backtrack to that chapter for a guide to installing Node.
+
+### Install grunt-cli
+
+Installing node gives us the node package manager `npm`. We'll use it to install grunt-cli, which is the command-line tool that is used to run grunt tasks. 
+
+**Run this in your terminal after installing node.js:**
+
+```
+npm intall -g grunt-cli
+```
+
+This installs the grunt command-line tool globally on your machine. Now you can run the `grunt `command!
+
+And, it won't do anything.
+
+Bummer. **But it will give you a message like this**:
+
+```
+grunt-cli: The grunt command line interface. (v0.1.6)
+  Fatal error: Unable to find local grunt.
+  If you're seeing this message, either a Gruntfile wasn't found or grunt hasn't been installed locally to your project. For more information about installing and configuring grunt, please see the Getting Started guide: [http://gruntjs.com/getting-started](http://gruntjs.com/getting-started)
+```
+
+The grunt command looks for a locally installed version of grunt, which you can include in your project as a development dependency in a package.json file.
+
+### Hey, package.json files are cool.
+
+You can use a package.json file for a lot of useful purposes. Primarily, it's used to list your project's dependencies on npm packages, as well as list the name, description, version, and source repository of the project. You can specify the type of license, version of node the project requires, the project's contributors, and more. Check out [this interactive package.json cheatsheet][http://package.json.nodejitsu.com/] for a nice rundown on the basics.
+
+So, our package.json will specify some development dependencies. 
+
+**Some basic requirements:**
+
+- We'll test the javascript with qunit.
+- We'll write scss and compile it to css, then minify the css.
+- We'll concatenate and uglify our javascript files.
+- We'll use the `grunt watch` command to automatically run grunt tasks when files are edited.
+- We'll want a little http server to check out our game as we're developing it. 
+
+Some of the above requirements could be perceived as excessive, but they help make this a meaty and useful tutorial, so deal with it.
+
+**So, we'll need to use some grunt plugins. We'll use these ones:**
+
+- [grunt-contrib-qunit][https://github.com/gruntjs/grunt-contrib-qunit]
+- [grunt-contrib-jshint][https://github.com/gruntjs/grunt-contrib-jshint]
+- [grunt-contrib-connect][https://github.com/gruntjs/grunt-contrib-connect]
+- [grunt-contrib-watch][https://github.com/gruntjs/grunt-contrib-watch]
+
+
+**That means our package.json file will look like this:**
+
+```
+{ 
+  "name": "your-project-name", 
+  "version": "0.0.1", 
+  "author": "Super Big Tree <seth@superbigtree.com>", 
+  "description": "A silly game.", 
+  "repository": { 
+    "type": "git", 
+    "url": "https://github.com/your-profile/your-project-name.git" 
+  }, 
+  "devDependencies": { 
+      "grunt": "~0.4.0",
+      "grunt-contrib-qunit": "~0.2.0",
+      "grunt-contrib-jshint": "~0.1.1",
+      "grunt-contrib-connect": "~0.1.2",
+      "grunt-contrib-watch": "~0.4.4"
+}, 
+ "license": "MIT", 
+ "engines": { 
+ "node": ">=0.8" 
+ } 
+}
+```
+
+**Go to your terminal. Create a folder that you want to serve as the project's folder:**
+
+```
+cd wherever/you/want/the/project/to/live
+mkdir your-project-name
+cd your-project-name
+```
+
+Now, create your package.json file:
+
+```
+touch package.json
+```
+
+Copy and paste the above package.json example into your package.json file using your favorite text editor. Save the file. **Now, you can run
+this:**
+
+```
+npm install
+```
+
+to install all the dependencies.
+
+If you run the command and get an error like this at the end, then something is not ok:
+
+```
+npm ERR! not ok code 0
+```
+
+There's an error of some kind that will need to be worked out. For me, typically the problem is that I messed up the syntax or put the wrong version number for a dependency, so check things like that first.
+
+### Project setup:
+
+Let's make all our files and folders now!
+
+**This will make all the folders we want:**
+
+```
+> mkdir -p test js css/scss img
+```
+
+**This will make the files we want:**
+
+```
+touch js/player.js js/game.js js/enemies.js js/ui.js \
+touch css/scss/main.scss css/scss/reset.scss css/scss/ui.scss \
+touch test/player.js test/enemies.js test/game.js test/ui.js
+```
+
+Cool. Did that. **Now we make the Gruntfile:**
+
+```
+touch Gruntfile.js
+```
+
+**Open Gruntfile.js in your favorite editor and paste in this:**
+
+```
+module.exports = function(grunt) {
+  grunt.initConfig({
+    // and here we do some cool stuff
+  });
+};
+```
+
+The above code is the required wrapper code to make a Gruntfile work. Now, remember our package.json file. Buds, we can use the values from that file in our Gruntfile.
+
+**Check it out: **Let's say we're making a javascript library and want to put stuff like the name, version, author, source repository, and license of the project in a multi-line comment at the top of the file. It would be a bummer to have to edit that by hand every time the file is compiled for a new release. Instead, we can use values from package.json in our Gruntfile!
+
+First step is to read the contents of package.json by **putting this line in Gruntfile.js**:
+
+```
+pkg: grunt.file.readJSON('package.json');
+```
+
+A package.json file is just JSON, right? Yeah, so it's easy to get at the values to do cool stuff.
+
+For fun, let's see what it takes to run a custom task inside a Gruntfile, and have it log some attributes from the package.json file. Alright? OK.
+
+This is a really simple task that logs the package name and version to the console, shown here as the complete Gruntfile.js:
+
+```
+module.exports = function(grunt) {
+  grunt.initConfig({
+    // read the json file
+    pkg: grunt.file.readJSON('package.json'),
+
+    log: {
+      // this is the name of the project in package.json
+      name: '<%= pkg.name %>', 
+
+      // the version of the project in package.json
+      version: '<%= pkg.version %>' 
+    }
+  });
+
+  grunt.registerMultiTask('log', 'Log project details.', function() {     
+    // because this uses the registerMultiTask function it runs grunt.log.writeln()     
+    // for each attribute in the above log: {} object     
+    grunt.log.writeln(this.target + ': ' + this.data);   
+  });
+};
+```
+
+**You can now run your task on the command line!:**
+
+```
+grunt log
+```
+
+
+**You should get output like this:**
+
+```
+Running 'log:name' (log) task 
+name: your-project-name
+Running 'log:version' (log) task
+version: 0.0.1
+Done, without errors.
+```
+
+If you didn't get output like that, check your Gruntfile for typos. If you did get output like that: Awesome! So we've made it pretty far. We've set up a project with a bunch of files and folders, created a package.json file with a list of devDependencies, installed the dependencies, and tried out a simple Gruntfile for running arbitrary tasks.
+
+If this seems like a lot, like it's beating up your brain, don't worry. After a few times of starting a project like this, these initial steps will get faster and easier. Heck, you might even create some kind of base project that you can build on with each new project so that you don't have to write the boilerplate every time. Or you could use a project like yeoman for its code generators. That's up to you, but when first learning this it's a reasonable idea to start from scratch and see how everything works.
+
+
+# Package managers for browser code: what should I use?
+
+When should I use npm, bower, or component for managing client-side code?
+
+To start: always use one of them. The old days of downloading js/css libraries one by one and updating them manually are totally over, and that's exciting. Using a package manager for front-end code means we can easily download libraries, keep track of versions, and ease dependency management.
+
+But we still have too many options for how to manage our client-side code. Beyond npm, bower, and component there are still many other options, but those three seem to be settling in as the most widely adopted.
+
+## And all three are quite different:
+
+### npm
+npm nominally started out as a package manager for node, but now is used for any javascript, and along with a tool like browserify it's easy to use npm packages and node-style modules in the browser. It's not super useful for css libraries – but it's easy to imagine a tool (built on something like brfs) that could make bundling css npm packages super pleasant.
+
+### bower
+bower is a clear hero of client-side code: it's great for both css and javascript. It's easy to manage dependencies – even if those dependencies don't have a config file for bower. You can install a file or git repository as a dependency alongside packages in the bower registry. Bower doesn't make any assumptions about how you build or deploy code, so it is compatible with amd modules.
+
+### component
+component is a tool with a more focused and defined goal than npm and bower. It uses common js style modules. Each component may contain javascript, css, fonts, and images. Some javascript-only components can also be used in node.js. See the [Component FAQ](https://github.com/component/component/wiki/F.A.Q) for more details.
+
+## When I use npm for browser code:
+Games. There's been a lot of interesting activity in javascript game development in the node.js community using browserify. voxel.js is one of the biggest examples, with a goal of creating minecraft-like games in the browser. See the work of these people for examples:
+
+npm/browserify will also be useful for creating applications that might share javascript code on the server and the browser. This approach also works well when the javascript requirements for the client-side are minimal, or if you prefer to write client-side code in a node style.
+
+## When I use bower for browser code:
+When the project requires a front-end framework like backbone, angular, or ember, I use bower as the package manager. It's currently the best way to package arbitrary dependencies of a javascript application. Typically using bower means that I am also using the build tool grunt.
+
+## I don't really use component yet.
+I really want to. It seems like there's some great work happening around component. I expect that there will be instances when I'll want to use some of the available components. But when that happens, I'll probably need to figure out a way to integrate component with bower or npm/browserify.
+
+## Use all three at once!
+It's possible to use packages from both bower and component while using browserify!
+
+Check out this great guide for using components, bower packages, amd modules, and even global variables with browserify: http://dontkry.com/posts/code/browserify-and-the-universal-module-definition.html
+
 
 # Part 2: In depth with javascript data types
 
 In this section of the book we'll review strings, numbers, arrays, and objects, and focus on a problem that often comes up with each of them.
+
+###Each chapter will follow this pattern:
+- Present a problem that needs to be solved
+- Describe a possible solution that can be written as a Node.js-style module
+- Write tests for the module
+- Write the actual module
+- Show usage of the module
 
 
 # Strings
@@ -1732,7 +2202,6 @@ console.log(filtered);
 ```
 
 
-
 # Objects
 
 ## Problem
@@ -1851,6 +2320,156 @@ eachKey(anObject, function(key, value){
   console.log(key, value)
 });
 ```
+
+
+# Part 3: Example applications
+
+In this section of the book we'll explore extended examples that show usage patterns for the concepts, modules, and development tools described earlier in the book.
+
+## List of examples:
+
+### Using Backbone and jQuery with Browserify
+
+Using browserify with modules from npm can be a little overwhelming at first, so what if we were able to use a couple of common front-end development libraries using along with browserify to ease the process of getting started? 
+
+
+### This section is a work in progress
+
+I'm currently working on new examples to include in this part of the book, and it would be wonderful to hear what types of examples you'd like to see! Please email suggestions to hi@learnjs.io.
+
+
+# Using Backbone and jQuery with Browserify
+
+Using browserify with modules from npm can be a little overwhelming at first, so what if we were able to use a couple of common front-end development libraries using along with browserify to ease the process of getting started? 
+
+It's possible to build applications using [backbone](https://github.com/jashkenas/backbone) and [jquery](https://github.com/jquery/jquery) that are bundled by [browserify](https://github.com/substack/node-browserify), and in this post we'll take a look at the basics of how that works. We'll use a tool called [beefy](https://github.com/chrisdickinson/beefy) as the development server.
+
+To get started, create a directory for your project, change directory into it, and run `npm init` to create a package.json file for your project:
+
+```
+mkdir my-project
+cd my-project
+npm init
+```
+
+Answer the questions from the `npm init` prompt.
+
+## Install jquery and backbone:
+`npm install --save jquery backbone`
+
+## Create a view module in a file named app-view.js:
+
+```
+var Backbone = require('backbone');
+var $ = require('jquery/dist/jquery')(window);
+Backbone.$ = $;
+
+module.exports = Backbone.View.extend({
+  initialize: function(){
+    console.log('wuuut')
+    this.render();
+  },
+
+  render: function(){
+    $('body').prepend('<p>wooooooooooooooo</p>');
+  }
+});
+```
+
+This should look familiar if you've used Backbone before, with the slight variation of exporting the view using module.exports.
+
+There's also the weird require statement for jQuery:
+
+```
+var $ = require('jquery/dist/jquery')(window);
+```
+
+We have to use the path to the actual jQuery build rather than just pass the module name, and specify `window` so that jQuery actually uses the window object. Otherwise, we'd get an annoying error like this:
+
+```
+Uncaught Error: jQuery requires a window with a document
+```
+
+This require statement will likely get simpler in upcoming versions of jQuery.
+
+### Create an index.js file with this code to use the module:
+
+```  
+    var AppView = require('./app-view')
+
+    var appView = new AppView();
+```
+
+## Install browserify and beefy to use to bundle the code and create a dev server:
+
+```
+npm install --save-dev browserify beefy
+```
+
+Add a `start` command and a 'bundle' command to your package.json scripts object, so that it looks like this:
+
+```
+"scripts": {
+    "start": "beefy index.js:bundle.js --live",
+    "bundle": "browserify index.js -o bundle.js"
+  },
+```
+
+Now, you can run `npm start` and view the simple Backbone/jQuery app bundled by browserify at `http://localhost:9966`. Beefy will watch your files for changes, then regenerate and serve a bundle.js file and reload the browser window each time you save a file. Convenient!
+
+And when you're ready to deploy your project, you can run `npm run bundle` to get an actual bundle.js file. Host this thing on GitHub Pages or wherever you like.
+
+
+## Example source code
+
+See the full, operational code on github: [github.com/learn-js/jquery-backbone-browserify-example](https://github.com/learn-js/jquery-backbone-browserify-example).
+
+
+# Appendix
+
+# Additional resources
+
+## interactive terminal tutorials:
+You should definitely visit [nodeschool.io](http://nodeschool.io). It features tutorials that are almost like adventure games, except for learning programming:
+
+- [Learn You The Node.js For Much Win!](https://github.com/rvagg/learnyounode) An intro to Node.js via a set of self-guided workshops.
+- [Stream Adventure](https://github.com/substack/stream-adventure). Learn about streams in node.js
+- [Level Me Up Scotty!](https://github.com/rvagg/levelmeup) Learn about using leveldb with node.js
+
+### Online interactive tutorials:
+- [codecademy.com](http://codecademy.com)
+- [Kahn Academy Computer Science](https://www.khanacademy.org/cs)
+
+## javascript books:
+- [js for cats](https://github.com/maxogden/javascript-for-cats)
+- [eloquent javascript](http://eloquentjavascript.net/)
+- [learning javascript design patterns](http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/)
+- [writing modular javascript](http://addyosmani.com/writing-modular-js/)
+- [jquery fundamentals](http://jqfundamentals.com/)
+- [javascript enlightenment](http://www.javascriptenlightenment.com/JavaScript_Enlightenment.pdf)
+
+## node.js books:
+- [art of node](https://github.com/maxogden/art-of-node)
+- [stream handbook](https://github.com/substack/stream-handbook)
+- [node beginner book](http://www.nodebeginner.org/)
+
+## html/js/dom books:
+- [dive into html5](http://diveintohtml5.info/)
+- [dom enlightenmnet](http://domenlightenment.com/)
+
+## Style guides:
+- [idiomatic js](https://github.com/rwldrn/idiomatic.js)
+- [idiomatic html](https://github.com/necolas/idiomatic-html)
+- [idiomatic css](https://github.com/necolas/idiomatic-css)
+- [airbnb js style guide](https://github.com/airbnb/javascript)
+- [felixge node style guide](https://github.com/felixge/node-style-guide)
+- [jQuery's javascript style guide](http://contribute.jquery.org/style-guide/js/
+
+**[Mozilla Documentation](https://developer.mozilla.org/en-US/)**  
+Have a question about some css property or html element? The Mozilla Developer Network has awesome documentation. If you're searching on google.com for anything css/html/js related, add the abbreviation "mdn" to your search query to see results from Mozilla Documentation. This site also has a bunch of introductory tutorials that are really useful.
+
+**[WebPlatform.org](http://www.webplatform.org/)**  
+This is a newer resource, but a good one. It's got a great design and well-organized resources.
 
 # Javascript strings cheatsheet
 
@@ -2028,494 +2647,13 @@ someString.trim();
 ```
 
 
-
-# In-depth with Node.js
-
-This chapter is currently a work in progress.
-
-
-# Introduction to git & GitHub
-
-Developing websites and applications without using git is equivalent to writing in Microsoft Word without ever saving your work.
-
-**Use git.**
-
-Git is a version control system, which means it can track every change you make to your code. This allows you to review and edit past versions if you mess something up. And it allows you to figure out when errors were introduced to the code.
-
-There are many other bonuses to using git, which are mostly out of this book's scope.
-
-The best way to start learning git (and GitHub) is to visit [try.github.com](http://try.github.com). You should also try [githug, a game for learning git](https://github.com/Gazler/githug).
-
-## Here are some basics of using git:
-
-Create a git repository:
-
-```
-cd name-of-folder
-git init
-```
-
-Add files:
-
-```
-git add name-of-file
-
-// or add all files in directory:
-
-git add .
-```
-
-When you add files to a git repository they are "staged" and ready to be committed.
-
-Remove files:
-```
-git rm name-of-file
-
-// force removal of files:
-
-git rm -rf name-of-file-or-directory
-```
-
-Commit files and add a message using the `-m` option:
-
-```
-git commit -m 'a message describing the commit'
-```
-
-Create a branch:
-
-```
-git branch name-of-branch
-```
-
-Checkout a branch:
-
-```
-git checkout name-of-branch
-```
-
-Shortcut for creating a new branch and checking it out:
-
-```
-git checkout -b name-of-branch
-```
-
-Merge a branch into the master branch:
-
-```
-git checkout master
-git merge name-of-branch
-```
-
-Add a remote repository:
-
-```
-git remote add origin git@github.com:yourname/projectname.git
-```
-
-List associated repositories:
-
-```
-git remote -v
-```
-
-Pull changes from a remote repository:
-
-```
-git pull origin master
-```
-
-Push changes to a remote repository
-
-```
-git push origin master
-```
-
-Checkout a remote branch:
-
-```
-git checkout -t origin/haml
-```
-
-## Get on GitHub
-If you haven't already, create an account at [github.com](http://github.com).
-
-GitHub is a great place to host your code. Many employers hiring for developer and designer positions will ask for a GitHub profile, and they'll use your GitHub activity as part of the criteria in their decision-making process.
-
-In fact, if you're looking to get a job with a particular company, try to find _their_ GitHub profile and start contributing to their open source projects. This will help you stand out, and they'll already know your technical abilities based on your open source contributions. That's a big win.
-
-GitHub has become the de facto code hosting service for most open source communities.
-
-### With GitHub Pages you can:
-- design a website any way you want by having complete control over the html, css, and javascript.
-- use simple templates for getting started using GitHub Pages.
-- create sites for yourself and all of your projects hosted on GitHub.
-- use a custom domain name if you want!
-
-Visit the [help section for GitHub Pages](https://help.github.com/categories/20/articles) to learn more details about hosting sites on GitHub.
-
-
-## Create a site for yourself using GitHub
-
-GitHub has a useful service called [GitHub Pages](http://pages.github.com) that allows you to host a simple site on their servers for free.
-
-To get started, fork this simple template: [github.com/maxogden/gh-pages-template](https://github.com/maxogden/gh-pages-template).
-
-Visit that github project, make sure you're logged in, and click Fork in the upper right side of the screen.
-
-Fork gh-pages-template to your personal account.
-
-Rename the repository from gh-pages-template to whatever you want by clicking on Settings on the right side of your fork of the repository, and changing the name there. GitHub will warn
-
-That's it! You now have a website hosted through GitHub Pages.
-
-You'll be able to visit your site at __YOUR-USERNAME__.github.com/__YOUR-PROJECT-NAME__.
-
-You'll want to edit the content though, right? Add your cat pictures or resume or pizza recipes? You can do that.
-
-You can create, edit, move, rename, and delete files all through the GitHub website. Check out these blog posts on GitHub for details on how to do those things:
-- [Create files](https://github.com/blog/1327-creating-files-on-github)
-- [Edit files](https://github.com/blog/143-inline-file-editing)
-- [Move and rename files](https://github.com/blog/1436-moving-and-renaming-files-on-github)
-- [Delete files](https://github.com/blog/1545-deleting-files-on-github)
-
-You can also clone the project repository onto your computer:
-
-```
-git clone git@github.com:__YOUR-USERNAME__/__YOUR-PROJECT-NAME__.git
-```
-
-You can copy the git url to clone from the right-hand sidebar of your project repository.
-
-After cloning the repository, `cd` into it and make some changes:
-
-```
-cd __YOUR-PROJECT-NAME__
-nano index.html
-```
-
-Add a bunch of content to index.html, and change the styles in style.css.
-
-After you've made some changes, add them to the repo and commit the changes:
-
-```
-git add .
-git commit -m 'include a brief, clear message about the changes'
-```
-
-Now, push your changes back to GitHub:
-
-```
-git push origin gh-pages
-```
-
-# Introduction to grunt.js
-
-Grunt is a tool for managing the javascript, css, and html files of your web project. Grunt is a task manager similar to Ruby's `rake`. You can run any arbitrary tasks you want, and there are a number of grunt plugins that make it easy to set up common tasks. Grunt is useful for running tests or for build steps, including turning sass, stylus, or less files into css, concatenating files, or creating .zip or .tar.gz packages of your project.
-
-### Outline of the steps in this tutorial:
-
--   Install node.
--   Install grunt-cli.
--   Setup project.
--   Set up package.json.
--   Create Gruntfile.js.
--   Run grunt tasks.
--   Make an awesome project.
-
-### Install node:
-
-There are a few options for this, and I've put them in my order of preference:
-
-**Use nvm to manage node versions** This option gives you the most control, allows you to switch between versions of node similar to using rvm or rbenv for Ruby. [Get nvm here](https://github.com/creationix/nvm).
-
-**Install using a package manager.** This is a good option, but sometimes package managers can be out of date. If the node version you'll be using matters for your project, you should make sure that the version in the package manager works for you. [Check out a list of package manager instructions here][https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager].
-
-**Download an installer from nodejs.org.
-**[Here's the node.js download page][nodejs.org/download].
-
-Installing node gives us the node package manager `npm`. We'll use it to install grunt-cli, which is the command-line tool that is used to run grunt tasks. 
-
-**Run this in your terminal after installing node.js:**
-
-```
-npm intall -g grunt-cli
-```
-
-This installs the grunt command-line tool globally on your machine. Now you can run the `grunt `command!
-
-And, it won't do anything.
-
-Bummer. **But it will give you a message like this**:
-
-```
-grunt-cli: The grunt command line interface. (v0.1.6)
-  Fatal error: Unable to find local grunt.
-  If you're seeing this message, either a Gruntfile wasn't found or grunt hasn't been installed locally to your project. For more information about installing and configuring grunt, please see the Getting Started guide: [http://gruntjs.com/getting-started](http://gruntjs.com/getting-started)
-```
-
-The grunt command looks for a locally installed version of grunt, which you can include in your project as a development dependency in a package.json file.
-
-### Hey, package.json files are cool.
-
-You can use a package.json file for a lot of useful purposes. Primarily, it's used to list your project's dependencies on npm packages, as well as list the name, description, version, and source repository of the project. You can specify the type of license, version of node the project requires, the project's contributors, and more. Check out [this interactive package.json cheatsheet][http://package.json.nodejitsu.com/] for a nice rundown on the basics.
-
-So, our package.json will specify some development dependencies. 
-
-**Some basic requirements:**
-
-- We'll test the javascript with qunit.
-- We'll write scss and compile it to css, then minify the css.
-- We'll concatenate and uglify our javascript files.
-- We'll use the `grunt watch` command to automatically run grunt tasks when files are edited.
-- We'll want a little http server to check out our game as we're developing it. 
-
-Some of the above requirements could be perceived as excessive, but they help make this a meaty and useful tutorial, so deal with it.
-
-**So, we'll need to use some grunt plugins. We'll use these ones:**
-
-- [grunt-contrib-qunit][https://github.com/gruntjs/grunt-contrib-qunit]
-- [grunt-contrib-jshint][https://github.com/gruntjs/grunt-contrib-jshint]
-- [grunt-contrib-connect][https://github.com/gruntjs/grunt-contrib-connect]
-- [grunt-contrib-watch][https://github.com/gruntjs/grunt-contrib-watch]
-
-
-**That means our package.json file will look like this:**
-
-```
-{ 
-  "name": "your-project-name", 
-  "version": "0.0.1", 
-  "author": "Super Big Tree <seth@superbigtree.com>", 
-  "description": "A silly game.", 
-  "repository": { 
-    "type": "git", 
-    "url": "https://github.com/your-profile/your-project-name.git" 
-  }, 
-  "devDependencies": { 
-      "grunt": "~0.4.0",
-      "grunt-contrib-qunit": "~0.2.0",
-      "grunt-contrib-jshint": "~0.1.1",
-      "grunt-contrib-connect": "~0.1.2",
-      "grunt-contrib-watch": "~0.4.4"
-}, 
- "license": "MIT", 
- "engines": { 
- "node": ">=0.8" 
- } 
-}
-```
-
-**Go to your terminal. Create a folder that you want to serve as the project's folder:**
-
-```
-cd wherever/you/want/the/project/to/live
-mkdir your-project-name
-cd your-project-name
-```
-
-Now, create your package.json file:
-
-```
-touch package.json
-```
-
-Copy and paste the above package.json example into your package.json file using your favorite text editor. Save the file. **Now, you can run
-this:**
-
-```
-npm install
-```
-
-to install all the dependencies.
-
-If you run the command and get an error like this at the end, then something is not ok:
-
-```
-npm ERR! not ok code 0
-```
-
-There's an error of some kind that will need to be worked out. For me, typically the problem is that I messed up the syntax or put the wrong version number for a dependency, so check things like that first.
-
-### Project setup:
-
-Let's make all our files and folders now!
-
-**This will make all the folders we want:**
-
-```
-> mkdir -p test js css/scss img
-```
-
-**This will make the files we want:**
-
-```
-touch js/player.js js/game.js js/enemies.js js/ui.js \
-touch css/scss/main.scss css/scss/reset.scss css/scss/ui.scss \
-touch test/player.js test/enemies.js test/game.js test/ui.js
-```
-
-Cool. Did that. **Now we make the Gruntfile:**
-
-```
-touch Gruntfile.js
-```
-
-**Open Gruntfile.js in your favorite editor and paste in this:**
-
-```
-module.exports = function(grunt) {
-  grunt.initConfig({
-    // and here we do some cool stuff
-  });
-};
-```
-
-The above code is the required wrapper code to make a Gruntfile work. Now, remember our package.json file. Buds, we can use the values from that file in our Gruntfile.
-
-**Check it out: **Let's say we're making a javascript library and want to put stuff like the name, version, author, source repository, and license of the project in a multi-line comment at the top of the file. It would be a bummer to have to edit that by hand every time the file is compiled for a new release. Instead, we can use values from package.json in our Gruntfile!
-
-First step is to read the contents of package.json by **putting this line in Gruntfile.js**:
-
-```
-pkg: grunt.file.readJSON('package.json');
-```
-
-A package.json file is just JSON, right? Yeah, so it's easy to get at the values to do cool stuff.
-
-For fun, let's see what it takes to run a custom task inside a Gruntfile, and have it log some attributes from the package.json file. Alright? OK.
-
-This is a really simple task that logs the package name and version to the console, shown here as the complete Gruntfile.js:
-
-```
-module.exports = function(grunt) {
-  grunt.initConfig({
-    // read the json file
-    pkg: grunt.file.readJSON('package.json'),
-
-    log: {
-      // this is the name of the project in package.json
-      name: '<%= pkg.name %>', 
-
-      // the version of the project in package.json
-      version: '<%= pkg.version %>' 
-    }
-  });
-
-  grunt.registerMultiTask('log', 'Log project details.', function() {     
-    // because this uses the registerMultiTask function it runs grunt.log.writeln()     
-    // for each attribute in the above log: {} object     
-    grunt.log.writeln(this.target + ': ' + this.data);   
-  });
-};
-```
-
-**You can now run your task on the command line!:**
-
-```
-grunt log
-```
-
-
-**You should get output like this:**
-
-```
-Running 'log:name' (log) task 
-name: your-project-name
-Running 'log:version' (log) task
-version: 0.0.1
-Done, without errors.
-```
-
-If you didn't get output like that, check your Gruntfile for typos. If you did get output like that: Awesome! So we've made it pretty far. We've set up a project with a bunch of files and folders, created a package.json file with a list of devDependencies, installed the dependencies, and tried out a simple Gruntfile for running arbitrary tasks.
-
-If this seems like a lot, like it's beating up your brain, don't worry. After a few times of starting a project like this, these initial steps will get faster and easier. Heck, you might even create some kind of base project that you can build on with each new project so that you don't have to write the boilerplate every time. Or you could use a project like yeoman for its code generators. That's up to you, but when first learning this it's a reasonable idea to start from scratch and see how everything works.
-
-
-# Package managers for browser code: what should I use?
-
-When should I use npm, bower, or component for managing client-side code?
-
-To start: always use one of them. The old days of downloading js/css libraries one by one and updating them manually are totally over, and that's exciting. Using a package manager for front-end code means we can easily download libraries, keep track of versions, and ease dependency management.
-
-But we still have too many options for how to manage our client-side code. Beyond npm, bower, and component there are still many other options, but those three seem to be settling in as the most widely adopted.
-
-## And all three are quite different:
-
-### npm
-npm nominally started out as a package manager for node, but now is used for any javascript, and along with a tool like browserify it's easy to use npm packages and node-style modules in the browser. It's not super useful for css libraries – but it's easy to imagine a tool (built on something like brfs) that could make bundling css npm packages super pleasant.
-
-### bower
-bower is a clear hero of client-side code: it's great for both css and javascript. It's easy to manage dependencies – even if those dependencies don't have a config file for bower. You can install a file or git repository as a dependency alongside packages in the bower registry. Bower doesn't make any assumptions about how you build or deploy code, so it is compatible with amd modules.
-
-### component
-component is a tool with a more focused and defined goal than npm and bower. It uses common js style modules. Each component may contain javascript, css, fonts, and images. Some javascript-only components can also be used in node.js. See the [Component FAQ](https://github.com/component/component/wiki/F.A.Q) for more details.
-
-## When I use npm for browser code:
-Games. There's been a lot of interesting activity in javascript game development in the node.js community using browserify. voxel.js is one of the biggest examples, with a goal of creating minecraft-like games in the browser. See the work of these people for examples:
-
-npm/browserify will also be useful for creating applications that might share javascript code on the server and the browser. This approach also works well when the javascript requirements for the client-side are minimal, or if you prefer to write client-side code in a node style.
-
-## When I use bower for browser code:
-When the project requires a front-end framework like backbone, angular, or ember, I use bower as the package manager. It's currently the best way to package arbitrary dependencies of a javascript application. Typically using bower means that I am also using the build tool grunt.
-
-## I don't really use component yet.
-I really want to. It seems like there's some great work happening around component. I expect that there will be instances when I'll want to use some of the available components. But when that happens, I'll probably need to figure out a way to integrate component with bower or npm/browserify.
-
-## Use all three at once!
-It's possible to use packages from both bower and component while using browserify!
-
-Check out this great guide for using components, bower packages, amd modules, and even global variables with browserify: http://dontkry.com/posts/code/browserify-and-the-universal-module-definition.html
-
-
-# Appendix
-
-# Additional resources
-
-## interactive terminal tutorials:
-You should definitely visit [nodeschool.io](http://nodeschool.io). It features tutorials that are almost like adventure games, except for learning programming:
-
-- [Learn You The Node.js For Much Win!](https://github.com/rvagg/learnyounode) An intro to Node.js via a set of self-guided workshops.
-- [Stream Adventure](https://github.com/substack/stream-adventure). Learn about streams in node.js
-- [Level Me Up Scotty!](https://github.com/rvagg/levelmeup) Learn about using leveldb with node.js
-
-### Online interactive tutorials:
-- [codecademy.com](http://codecademy.com)
-- [Kahn Academy Computer Science](https://www.khanacademy.org/cs)
-
-## javascript books:
-- [js for cats](https://github.com/maxogden/javascript-for-cats)
-- [eloquent javascript](http://eloquentjavascript.net/)
-- [learning javascript design patterns](http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/)
-- [writing modular javascript](http://addyosmani.com/writing-modular-js/)
-- [jquery fundamentals](http://jqfundamentals.com/)
-- [javascript enlightenment](http://www.javascriptenlightenment.com/JavaScript_Enlightenment.pdf)
-
-## node.js books:
-- [art of node](https://github.com/maxogden/art-of-node)
-- [stream handbook](https://github.com/substack/stream-handbook)
-- [node beginner book](http://www.nodebeginner.org/)
-
-## html/js/dom books:
-- [dive into html5](http://diveintohtml5.info/)
-- [dom enlightenmnet](http://domenlightenment.com/)
-
-## Style guides:
-- [idiomatic js](https://github.com/rwldrn/idiomatic.js)
-- [idiomatic html](https://github.com/necolas/idiomatic-html)
-- [idiomatic css](https://github.com/necolas/idiomatic-css)
-- [airbnb js style guide](https://github.com/airbnb/javascript)
-- [felixge node style guide](https://github.com/felixge/node-style-guide)
-- [jQuery's javascript style guide](http://contribute.jquery.org/style-guide/js/
-
-**[Mozilla Documentation](https://developer.mozilla.org/en-US/)**  
-Have a question about some css property or html element? The Mozilla Developer Network has awesome documentation. If you're searching on google.com for anything css/html/js related, add the abbreviation "mdn" to your search query to see results from Mozilla Documentation. This site also has a bunch of introductory tutorials that are really useful.
-
-**[WebPlatform.org](http://www.webplatform.org/)**  
-This is a newer resource, but a good one. It's got a great design and well-organized resources.
-
-
 # Changelog
+
+## v0.7.0 - February 3, 2014
+- Start Part 3: examples
+  - Add Using Backbone & jQuery with Browserify chapter
+- Refactor chapters to make more sense.
+- Many small typo fixes and improved explanations.
 
 ## v0.6.0 - December 18, 2013
 - Typo fixes
