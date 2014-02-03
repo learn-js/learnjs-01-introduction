@@ -2654,6 +2654,7 @@ someString.trim();
   - Add Using Backbone & jQuery with Browserify chapter
 - Refactor chapters to make more sense.
 - Many small typo fixes and improved explanations.
+- fixes from [suisea](https://github.com/suisea)
 
 ## v0.6.0 - December 18, 2013
 - Typo fixes
