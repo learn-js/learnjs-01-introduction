@@ -1,7 +1,7 @@
 {
   "name": "01-introduction",
   "description": "first javascript book in the learn.js series",
-  "version": "0.0.0",
+  "version": "0.8.0",
   "repository": {
     "url": "git://github.com/sethvincent/01-introduction.git"
   },
