@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.8.0 - June 17, 2014
+- Add Introduction to npm scripts chapter
+- Reorder chapters a little
+
 ## v0.7.0 - February 3, 2014
 - Start Part 3: examples
   - Add Using Backbone & jQuery with Browserify chapter
