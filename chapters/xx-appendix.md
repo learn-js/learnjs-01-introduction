@@ -36,7 +36,7 @@ You should definitely visit [nodeschool.io](http://nodeschool.io). It features t
 - [idiomatic css](https://github.com/necolas/idiomatic-css)
 - [airbnb js style guide](https://github.com/airbnb/javascript)
 - [felixge node style guide](https://github.com/felixge/node-style-guide)
-- [jQuery's javascript style guide](http://contribute.jquery.org/style-guide/js/
+- [jQuery's javascript style guide](http://contribute.jquery.org/style-guide/js/)
 
 **[Mozilla Documentation](https://developer.mozilla.org/en-US/)**  
 Have a question about some css property or html element? The Mozilla Developer Network has awesome documentation. If you're searching on google.com for anything css/html/js related, add the abbreviation "mdn" to your search query to see results from Mozilla Documentation. This site also has a bunch of introductory tutorials that are really useful.
