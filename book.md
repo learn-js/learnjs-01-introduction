@@ -65,7 +65,7 @@ This book is an introductory text. You likely got that from the title. I aim for
 
 The book covers introductory node.js, and writing client-side code using node modules and browserify.
 
-It’s meant as an introductory text that will get people up to speed for following books in the Learn.js series.
+It’s meant as an introductory text that will get people up to speed for the following books in the Learn.js series.
 
 ### The reader
 I expect that the ideal reader for this book is someone who likes exploring, imagining, and inventing for themselves. You might even have some experience with javascript already. And that’s OK, because practice, and even repetition, is an important part of learning.
@@ -879,12 +879,9 @@ while (i < 10){
 }
 ```
 
-### "for" loops
-
 Any time you want a program to do something a specific number of times, or you want to perform an action on every item in an array or object, you'll likely end up using a loop.
 
 ### "for" loops
-A for loop
 
 A simple for loop looks like this:
 
@@ -1036,7 +1033,7 @@ function holla(callback){
 
 Note how we're setting up an argument named `callback`, then calling that argument as a function: `callback()`.
 
-Usage if the `holla` function:
+Usage of the `holla` function:
 
 ```
 holla(function(){
@@ -1833,7 +1830,7 @@ The grunt command looks for a locally installed version of grunt, which you can 
 
 ### Hey, package.json files are cool.
 
-You can use a package.json file for a lot of useful purposes. Primarily, it's used to list your project's dependencies on npm packages, as well as list the name, description, version, and source repository of the project. You can specify the type of license, version of node the project requires, the project's contributors, and more. Check out [this interactive package.json cheatsheet][http://package.json.nodejitsu.com/] for a nice rundown on the basics.
+You can use a package.json file for a lot of useful purposes. Primarily, it's used to list your project's dependencies on npm packages, as well as list the name, description, version, and source repository of the project. You can specify the type of license, version of node the project requires, the project's contributors, and more. Check out [this interactive package.json cheatsheet](http://package.json.nodejitsu.com/) for a nice rundown on the basics.
 
 So, our package.json will specify some development dependencies. 
 
@@ -1849,10 +1846,10 @@ Some of the above requirements could be perceived as excessive, but they help ma
 
 **So, we'll need to use some grunt plugins. We'll use these ones:**
 
-- [grunt-contrib-qunit][https://github.com/gruntjs/grunt-contrib-qunit]
-- [grunt-contrib-jshint][https://github.com/gruntjs/grunt-contrib-jshint]
-- [grunt-contrib-connect][https://github.com/gruntjs/grunt-contrib-connect]
-- [grunt-contrib-watch][https://github.com/gruntjs/grunt-contrib-watch]
+- [grunt-contrib-qunit](https://github.com/gruntjs/grunt-contrib-qunit)
+- [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint)
+- [grunt-contrib-connect](https://github.com/gruntjs/grunt-contrib-connect)
+- [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)
 
 
 **That means our package.json file will look like this:**
@@ -1948,7 +1945,7 @@ module.exports = function(grunt) {
 
 The above code is the required wrapper code to make a Gruntfile work. Now, remember our package.json file. Buds, we can use the values from that file in our Gruntfile.
 
-**Check it out: **Let's say we're making a javascript library and want to put stuff like the name, version, author, source repository, and license of the project in a multi-line comment at the top of the file. It would be a bummer to have to edit that by hand every time the file is compiled for a new release. Instead, we can use values from package.json in our Gruntfile!
+**Check it out:**Let's say we're making a javascript library and want to put stuff like the name, version, author, source repository, and license of the project in a multi-line comment at the top of the file. It would be a bummer to have to edit that by hand every time the file is compiled for a new release. Instead, we can use values from package.json in our Gruntfile!
 
 First step is to read the contents of package.json by **putting this line in Gruntfile.js**:
 
@@ -2031,7 +2028,7 @@ We can use the String.replace() method.
 
 It would be cool if there were a function that accepted a buffer or a string, replaced the characters we want to remove with whatever we want instead, and returned it as either a buffer or a string, depending on what the input was.
 
-That approach assumes that when we are working with buffers, we want the data stay a buffer.
+That approach assumes that when we are working with buffers, we want the data to stay a buffer.
 
 We haven't talked about buffers before in this book. You can learn more about them by [reading the node.js docs about buffers](http://nodejs.org/api/buffer.html).
 
